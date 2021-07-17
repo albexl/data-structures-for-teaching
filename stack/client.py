@@ -1,4 +1,4 @@
-from implementation import LinkedStack, ArrayBasedStack
+from implementation import ArrayBasedStack, LinkedStack
 
 if __name__ == '__main__':
     stack = LinkedStack()

@@ -2,8 +2,8 @@ import random
 import time
 
 import pygame
-from pygame.locals import *
 from implementation import WeightedQuickUnion
+from pygame.locals import *
 
 WIDTH = 700
 HEIGHT = 700
