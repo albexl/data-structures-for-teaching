@@ -1,6 +1,5 @@
 import random
 import time
-
 from queue import Queue
 
 import pygame
