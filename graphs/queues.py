@@ -1,4 +1,5 @@
 import collections
+from implementation import Location
 
 
 class Queue:
@@ -8,8 +9,8 @@ class Queue:
     def empty(self) -> bool:
         return not self.elements
 
-    def put(self, x: T):
+    def put(self, x: Location):
         self.elements.append(x)
 
-    def get(self) -> T:
+    def get(self) -> Location:
         return self.elements.popleft()
