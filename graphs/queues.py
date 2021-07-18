@@ -1,4 +1,5 @@
 import collections
+
 from implementation import Location
 
 

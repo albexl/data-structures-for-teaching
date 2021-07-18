@@ -1,6 +1,5 @@
 from typing import Dict, List, Protocol, TypeVar
 
-
 Location = TypeVar('Location')
 
 
