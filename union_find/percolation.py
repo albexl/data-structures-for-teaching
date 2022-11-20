@@ -3,7 +3,7 @@ import sys
 import time
 
 import pygame
-from pygame.locals import *
+from pygame.locals import QUIT
 
 from implementation import WeightedQuickUnion
 
