@@ -1,8 +1,7 @@
-"""Implementation of Dijkstra's two stacks algorithm
-to evaluate infix expressions.
-"""
+"""Implementation of Dijkstra's two stacks algorithm to evaluate infix expressions."""
 
-from implementation import ArrayBasedStack, LinkedStack
+
+from .implementation import ArrayBasedStack
 
 if __name__ == '__main__':
 
@@ -13,7 +12,8 @@ if __name__ == '__main__':
     for token in line:
         if token == '(':
             continue
-        elif token == ')':
+
+        if token == ')':
             operator = ops_stack.pop()
             first_operand = val_stack.pop()
             second_operand = val_stack.pop()

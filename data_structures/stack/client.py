@@ -1,7 +1,7 @@
 """Client code to test the Stack implementations."""
 
 
-from implementation import LinkedStack
+from .implementation import LinkedStack
 
 if __name__ == '__main__':
     stack = LinkedStack()
