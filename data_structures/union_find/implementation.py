@@ -5,6 +5,7 @@ class UnionFind():
     """Base class for Union Find implementation."""
 
     def __init__(self, size: int):
+        self.size = size
         self.ids = list(range(size))
 
     def connected(self, node_a: int, node_b: int) -> bool:
@@ -79,9 +80,9 @@ class WeightedQuickUnion(QuickUnion):
     union(): O(log n)
     """
 
-    def __init__(self, size):
+    def __init__(self, size: int):
         super().__init__(size)
-        self.size = [1] * size
+        self.sizes = [1] * size
 
     def union(self, node_a: int, node_b: int):
         root_a = self._root(node_a)
@@ -89,8 +90,8 @@ class WeightedQuickUnion(QuickUnion):
         if root_a == root_b:
             return
 
-        if self.size[root_a] > self.size[root_b]:
+        if self.sizes[root_a] > self.sizes[root_b]:
             root_a, root_b = root_b, root_a
 
-        self.size[root_b] += self.size[root_a]
+        self.sizes[root_b] += self.sizes[root_a]
         self.ids[root_a] = root_b

@@ -6,7 +6,7 @@ from unittest import TestCase
 from data_structures.union_find.implementation import WeightedQuickUnion
 
 
-class TestUnionFind(TestCase):
+class TestWeightedQuickUnion(TestCase):
     """Class to test the WeightedQuickUnion implementation."""
 
     def setUp(self):
@@ -14,13 +14,13 @@ class TestUnionFind(TestCase):
 
     def test_connected_with_self(self):
         """Check that every node is connected to itself."""
-        for i in range(len(self.union_find.size)):
+        for i in range(self.union_find.size):
             self.assertTrue(self.union_find.connected(i, i))
 
     def test_connected_with_other(self):
         """Check that different nodes are not connected."""
-        for i in range(len(self.union_find.size)):
-            for j in range(len(self.union_find.size)):
+        for i in range(self.union_find.size):
+            for j in range(self.union_find.size):
                 if i != j:
                     self.assertFalse(self.union_find.connected(i, j))
 
