@@ -20,27 +20,27 @@ class ArrayBasedStack():
 
     def __init__(self):
         self.container = [None]
-        self.N = 0
+        self.size = 0
 
     def is_empty(self):
-        return self.N == 0
+        return self.size == 0
 
     def pop(self):
-        self.N -= 1
-        item = self.container[self.N]
-        self.container[self.N] = None
-        if self.N > 0 and self.N == len(self.container // 4):
-            self.resize(len(self.container) // 2)
+        self.size -= 1
+        item = self.container[self.size]
+        self.container[self.size] = None
+        if self.size > 0 and self.size == len(self.container // 4):
+            self._resize(len(self.container) // 2)
         return item
 
     def push(self, item):
-        if self.N == len(self.container):
-            self.resize(2 * len(self.container))
-        self.container[self.N] = item
-        self.N += 1
+        if self.size == len(self.container):
+            self._resize(2 * len(self.container))
+        self.container[self.size] = item
+        self.size += 1
 
-    def resize(self, capacity):
+    def _resize(self, capacity):
         copy = [None] * capacity
-        for i in range(self.N):
+        for i in range(self.size):
             copy[i] = self.container[i]
         self.container = copy

@@ -1,4 +1,7 @@
-from implementation import ArrayBasedStack, LinkedStack
+"""Client code to test the Stack implementations."""
+
+
+from implementation import LinkedStack
 
 if __name__ == '__main__':
     stack = LinkedStack()
