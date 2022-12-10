@@ -1,4 +1,4 @@
-from implementation import Graph, Location, SimpleGraph, Dict
+from implementation import Dict, Graph, Location, SimpleGraph
 from queues import Queue
 
 

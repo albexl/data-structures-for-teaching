@@ -1,4 +1,4 @@
-from typing import Dict, Iterator, List, Protocol, TypeVar, Tuple
+from typing import Dict, Iterator, List, Protocol, Tuple, TypeVar
 
 Location = TypeVar('Location')
 
