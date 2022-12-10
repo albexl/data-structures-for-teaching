@@ -7,11 +7,27 @@ class UnionFind():
     def __init__(self, size):
         self.ids = list(range(size))
 
-    def connected(self, node_a, node_b):
-        pass
+    def connected(self, node_a: int, node_b: int) -> bool:
+        """Checks if "node_a" and "node_b" belong to the same
+        connected component.
 
-    def union(self, node_a, node_b):
-        pass
+        Args:
+            node_a (int): Node to check.
+            node_b (int): Node to check.
+
+        Returns:
+            bool: True if "node_a" and "node_b" belong to the same component,
+            False otherwise.
+        """
+
+    def union(self, node_a: int, node_b: int):
+        """Joins node_a and node_b, making them both
+        be a part of the same connected component.
+
+        Args:
+            node_a (int): Node to join.
+            node_b (int): Node to join.
+        """
 
 
 class QuickFind(UnionFind):
@@ -21,10 +37,10 @@ class QuickFind(UnionFind):
     union(): O(n)
     """
 
-    def connected(self, node_a, node_b):
+    def connected(self, node_a: int, node_b: int) -> bool:
         return self.ids[node_a] == self.ids[node_b]
 
-    def union(self, node_a, node_b):
+    def union(self, node_a: int, node_b: int):
         root_a = self.ids[node_a]
         root_b = self.ids[node_b]
 
@@ -41,15 +57,24 @@ class QuickUnion(UnionFind):
     union(): O(n)
     """
 
-    def root(self, node):
+    def root(self, node: int) -> int:
+        """Returns the root of the connected
+        component where "node" belongs.
+
+        Args:
+            node (int): Node to check for the root.
+
+        Returns:
+            int: The root of the connected component of "node".
+        """
         while node != self.ids[node]:
             node = self.ids[node]
         return node
 
-    def connected(self, node_a, node_b):
+    def connected(self, node_a: int, node_b: int):
         return self.root(node_a) == self.root(node_b)
 
-    def union(self, node_a, node_b):
+    def union(self, node_a: int, node_b: int):
         root_a = self.root(node_a)
         root_b = self.root(node_b)
         self.ids[root_a] = root_b
@@ -67,7 +92,7 @@ class WeightedQuickUnion(QuickUnion):
         super().__init__(size)
         self.size = [1] * size
 
-    def union(self, node_a, node_b):
+    def union(self, node_a: int, node_b: int):
         root_a = self.root(node_a)
         root_b = self.root(node_b)
         if root_a == root_b:
