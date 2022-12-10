@@ -1,8 +1,18 @@
-from implementation import Dict, Graph, Location, SimpleGraph
-from queues import Queue
+"""Module with implementation of graph traversals."""
+
+
+from .implementation import Dict, Graph, Location, SimpleGraph
+from .queues import Queue
 
 
 def breadth_first_search(graph: Graph, start: Location):
+    """Performs a breadth-first search on a graph
+    starting from a specific node.
+
+    Args:
+        graph (Graph): The graph to be traversed.
+        start (Location): The location where the traversal begins.
+    """
     frontier = Queue()
     frontier.put(start)
     reached: Dict[Location, bool] = {}
@@ -10,11 +20,11 @@ def breadth_first_search(graph: Graph, start: Location):
 
     while not frontier.empty():
         current: Location = frontier.get()
-        print("Visiting {0}".format(current))
-        for next in graph.neighbors(current):
-            if next not in reached:
-                frontier.put(next)
-                reached[next] = True
+        print(f"Visiting {current}")
+        for node in graph.neighbors(current):
+            if node not in reached:
+                frontier.put(node)
+                reached[node] = True
 
 
 if __name__ == '__main__':
