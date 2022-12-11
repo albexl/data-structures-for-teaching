@@ -1,8 +1,8 @@
 """Module with implementation of graph traversals."""
 
 
-from implementation import Dict, Graph, Location, SimpleGraph
-from queues import Queue
+from .implementation import Dict, Graph, Location, SimpleGraph
+from .queues import Queue
 
 
 def breadth_first_search(graph: Graph, start: Location):

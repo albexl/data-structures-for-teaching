@@ -1,7 +1,7 @@
 """Client code to test the Union Find implementations."""
 
 
-from implementation import QuickFind
+from .implementation import QuickFind
 
 if __name__ == '__main__':
     n = int(input())

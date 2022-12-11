@@ -3,7 +3,7 @@
 
 import collections
 
-from implementation import Location
+from .implementation import Location
 
 
 class Queue:
