@@ -1,6 +1,9 @@
+"""Module to store the implementation of queues in order to make different traversals on graphs."""
+
+
 import collections
 
-from .implementation import Location
+from implementation import Location
 
 
 class Queue:
