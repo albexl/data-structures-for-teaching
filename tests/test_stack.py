@@ -13,7 +13,7 @@ class BaseTestStack(TestCase):
 
     def setUp(self):
         self.stack = None
-        self.test_items = None
+        self.test_items = []
 
     def test_empty_stack(self):
         """Checks stack is empty when just created."""
