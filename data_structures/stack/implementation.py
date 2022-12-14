@@ -70,7 +70,7 @@ class ArrayBasedStack():
         self.size -= 1
         item = self.container[self.size]
         self.container[self.size] = None
-        if self.size > 0 and self.size == len(self.container // 4):
+        if self.size > 0 and self.size == len(self.container) // 4:
             self._resize(len(self.container) // 2)
         return item
 

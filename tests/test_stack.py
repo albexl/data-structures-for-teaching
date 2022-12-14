@@ -13,16 +13,20 @@ class BaseTestStack(TestCase):
 
     def setUp(self):
         self.stack = None
-        self.test_item = None
+        self.test_items = None
 
     def test_empty_stack(self):
         """Checks stack is empty when just created."""
         self.assertTrue(self.stack.is_empty())
 
     def test_push_and_pop(self):
-        """Checks that the "pop" method returns the value just added by the "push" method"""
-        self.stack.push(self.test_item)
-        self.assertEqual(self.test_item, self.stack.pop())
+        """Check the stack returns the elements in the reverse order they were added."""
+        for item in self.test_items:
+            self.stack.push(item)
+        retrieved_items = []
+        while not self.stack.is_empty():
+            retrieved_items.append(self.stack.pop())
+        self.assertEqual(retrieved_items, list(reversed(self.test_items)))
 
 
 class TestArrayBaseStack(BaseTestStack):
@@ -32,7 +36,7 @@ class TestArrayBaseStack(BaseTestStack):
 
     def setUp(self):
         self.stack = ArrayBasedStack()
-        self.test_item = 5
+        self.test_items = [1, 2, 3]
 
 
 class TestLinkedStack(BaseTestStack):
@@ -42,4 +46,4 @@ class TestLinkedStack(BaseTestStack):
 
     def setUp(self):
         self.stack = LinkedStack()
-        self.test_item = 5
+        self.test_items = [1, 2, 3]

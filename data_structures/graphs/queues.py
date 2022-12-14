@@ -32,6 +32,6 @@ class Queue:
         """Returns the leftmost node of the queue.
 
         Returns:
-            Location: The retrieved node/
+            Location: The retrieved node
         """
         return self.elements.popleft()
