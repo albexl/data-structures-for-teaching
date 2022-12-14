@@ -1,22 +1,36 @@
+"""Simulation of a Tower Defense-like game movements."""
+
+
 import random
+import sys
 import time
 from queue import Queue
+from typing import List, Tuple
 
 import pygame
-from pygame.locals import *
+from pygame.locals import QUIT
 
 WIDTH = 630
 HEIGHT = 630
 MAX_ORIGINS = 30
 
 
-def setup(n):
-    obstacles = min(n**2, random.randint(2 * n, 3 * n))
-    board = [[False] * n for _ in range(n)]
+def setup(size: int) -> Tuple[List[List[bool]], Tuple[int, int], List[Tuple[int, int]]]:
+    """Sets up the board game. Generates random locations
+    for origins and destination.
+
+    Args:
+        size (int): Size of the board.
+
+    Returns:
+        Tuple[List[List[bool]], Tuple[int, int], List[Tuple[int, int]]]: Board game, destination location, origin locations.
+    """
+    obstacles = min(size**2, random.randint(2 * size, 3 * size))
+    board = [[False] * size for _ in range(size)]
 
     population = []
-    for i in range(n):
-        for j in range(n):
+    for i in range(size):
+        for j in range(size):
             population.append((i, j))
 
     random.shuffle(population)
@@ -24,23 +38,23 @@ def setup(n):
         board[population[i][0]][population[i][1]] = True
 
     population = []
-    for i in range(n):
-        for j in range(n):
+    for i in range(size):
+        for j in range(size):
             if not board[i][j]:
                 population.append((i, j))
 
     random.shuffle(population)
     destination = population[0]
 
-    m = min(len(population) - 1, MAX_ORIGINS)
+    origin_size = min(len(population) - 1, MAX_ORIGINS)
     origins = []
-    for i in range(1, m):
+    for i in range(1, origin_size):
         origins.append(population[i])
 
     return (board, destination, origins)
 
 
-def draw(board, destination, origins):
+def _draw(board, destination, origins):
 
     black_color = (0, 0, 0)
     grey_color = (105, 105, 105)
@@ -49,12 +63,12 @@ def draw(board, destination, origins):
     green_color = (0, 255, 0)
     game_display.fill(white_color)
 
-    n = len(board)
+    size = len(board)
 
-    for i in range(n):
-        for j in range(n):
-            rect = pygame.Rect(j * (HEIGHT // n), i *
-                               (HEIGHT // n), HEIGHT // n, HEIGHT // n)
+    for i in range(size):
+        for j in range(size):
+            rect = pygame.Rect(j * (HEIGHT // size), i *
+                               (HEIGHT // size), HEIGHT // size, HEIGHT // size)
             pygame.draw.rect(
                 game_display, black_color if board[i][j] else white_color, rect)
 
@@ -64,24 +78,24 @@ def draw(board, destination, origins):
             if (i, j) in origins:
                 pygame.draw.rect(game_display, red_color, rect)
 
-    for i in range(n + 1):
+    for i in range(size + 1):
         pygame.draw.line(game_display, grey_color,
-                         (i * (HEIGHT // n), 0), (i * (HEIGHT // n), WIDTH), width=1)
+                         (i * (HEIGHT // size), 0), (i * (HEIGHT // size), WIDTH), width=1)
 
-    for i in range(n + 1):
+    for i in range(size + 1):
         pygame.draw.line(game_display, grey_color,
-                         (0, i * (WIDTH // n)), (HEIGHT, i * (WIDTH // n)), width=1)
+                         (0, i * (WIDTH // size)), (HEIGHT, i * (WIDTH // size)), width=1)
 
     pygame.display.update()
 
 
-def handle_events(board, destination, origins, n):
+def _handle_events(board, destination, origins, size):
     for event in pygame.event.get():
 
         if event.type == pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
-            i = pos[1] // (HEIGHT // n)
-            j = pos[0] // (HEIGHT // n)
+            i = pos[1] // (HEIGHT // size)
+            j = pos[0] // (HEIGHT // size)
 
             if event.button == 3 and not board[i][j]:
                 destination = (i, j)
@@ -90,52 +104,53 @@ def handle_events(board, destination, origins, n):
 
         if event.type == QUIT:
             pygame.quit()
-            quit()
+            sys.exit()
 
     return destination
 
 
-def valid(x, y, n):
-    return min(x, y) >= 0 and max(x, y) < n
+def _valid(x_coord, y_coord, size):
+    return min(x_coord, y_coord) >= 0 and max(x_coord, y_coord) < size
 
 
-def bfs(board, destination, n):
-    q = Queue()
-    q.put(destination)
-    distances = [[-1] * n for _ in range(n)]
+def _bfs(board, destination, size):
+    queue = Queue()
+    queue.put(destination)
+    distances = [[-1] * size for _ in range(size)]
     distances[destination[0]][destination[1]] = 0
 
-    dx = [1, -1, 0, 0]
-    dy = [0, 0, 1, -1]
+    dir_x = [1, -1, 0, 0]
+    dir_y = [0, 0, 1, -1]
 
-    while not q.empty():
-        x, y = q.get()
+    while not queue.empty():
+        x_coord, y_coord = queue.get()
         for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
-            if valid(nx, ny, n) and (not board[nx][ny]) and distances[nx][ny] == -1:
-                distances[nx][ny] = distances[x][y] + 1
-                q.put((nx, ny))
+            new_x = x_coord + dir_x[i]
+            new_y = y_coord + dir_y[i]
+            if _valid(new_x, new_y, size) and (not board[new_x][new_y]) and distances[new_x][new_y] == -1:
+                distances[new_x][new_y] = distances[x_coord][y_coord] + 1
+                queue.put((new_x, new_y))
 
     return distances
 
 
-def update(board, destination, origins, distances, n):
-    dx = [1, -1, 0, 0]
-    dy = [0, 0, 1, -1]
+def _update(board, destination, origins, distances, size):
+    dir_x = [1, -1, 0, 0]
+    dir_y = [0, 0, 1, -1]
 
     updated_origins = []
-    for (x, y) in origins:
-        if distances[x][y] == -1:
+    for (x_coord, y_coord) in origins:
+        if distances[x_coord][y_coord] == -1:
             continue
 
-        next_move, min_dist = (-1, -1), n**2
+        next_move, min_dist = (-1, -1), size**2
         for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
-            if valid(nx, ny, n) and not board[nx][ny]:
-                if distances[nx][ny] < min_dist:
-                    next_move, min_dist = (nx, ny), distances[nx][ny]
+            new_x = x_coord + dir_x[i]
+            new_y = y_coord + dir_y[i]
+            if _valid(new_x, new_y, size) and not board[new_x][new_y]:
+                if distances[new_x][new_y] < min_dist:
+                    next_move, min_dist = (
+                        new_x, new_y), distances[new_x][new_y]
         updated_origins.append(next_move)
 
     origins = []
@@ -144,9 +159,9 @@ def update(board, destination, origins, distances, n):
             origins.append(pos)
 
     population = []
-    for i in range(n):
-        for j in range(n):
-            if not board[i][j] and (i, j) != destination and not (i, j) in origins:
+    for i in range(size):
+        for j in range(size):
+            if not board[i][j] and (i, j) != destination and (i, j) not in origins:
                 population.append((i, j))
 
     random.shuffle(population)
@@ -158,21 +173,29 @@ def update(board, destination, origins, distances, n):
     return origins
 
 
-def simulate(board, destination, origins, n):
+def simulate(board: List[List[bool]], destination: Tuple[int, int], origins: List[Tuple[int, int]], size: int):
+    """Simulate the movements of a Tower Defense-like game.
+
+    Args:
+        board (List[List[bool]]): The game board.
+        destination (Tuple[int, int]): Destination location.
+        origins (List[Tuple[int, int]]): Origin locations.
+        size (int): Size of the board.
+    """
     while True:
         time.sleep(0.1)
-        draw(board, destination, origins)
-        destination = handle_events(board, destination, origins, n)
-        distances = bfs(board, destination, n)
-        origins = update(board, destination, origins, distances, n)
+        _draw(board, destination, origins)
+        destination = _handle_events(board, destination, origins, size)
+        distances = _bfs(board, destination, size)
+        origins = _update(board, destination, origins, distances, size)
 
 
 if __name__ == '__main__':
-    n = int(input('Enter dimension of the system: '))
-    board, destination, origins = setup(n)
+    board_size = int(input('Enter dimension of the system: '))
+    game_board, dest_location, origin_locations = setup(board_size)
 
     pygame.init()
     game_display = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.flip()
 
-    simulate(board, destination, origins, n)
+    simulate(game_board, dest_location, origin_locations, board_size)

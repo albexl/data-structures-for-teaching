@@ -3,8 +3,9 @@ import sys
 import time
 
 import pygame
-from .implementation import WeightedQuickUnion
 from pygame.locals import QUIT
+
+from .implementation import WeightedQuickUnion
 
 WIDTH = 700
 HEIGHT = 700
