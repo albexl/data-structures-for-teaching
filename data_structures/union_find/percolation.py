@@ -12,7 +12,7 @@ HEIGHT = 700
 
 
 def map_pos(pos, board_size):
-    return (pos // size, pos % board_size)
+    return (pos // board_size, pos % board_size)
 
 
 def reverse_map(x_cord, y_cord, board_size):
@@ -68,39 +68,40 @@ if __name__ == '__main__':
     pygame.display.flip()
     game_display.fill((0, 0, 0))
 
-    for size in input_sizes:
+    for input_size in input_sizes:
 
-        print(f'Solving for input size: {size}')
+        print(f'Solving for input size: {input_size}')
 
-        union_find = WeightedQuickUnion(size**2 + 2)
-        population = list(range(size**2))
-        active = [False for _ in range(size**2)]
+        union_find = WeightedQuickUnion(input_size**2 + 2)
+        population = list(range(input_size**2))
+        active_pos = [False for _ in range(input_size**2)]
         random.shuffle(population)
 
-        for i in range(size):
-            union_find.union(size**2, reverse_map(0, i, size))
-            union_find.union(size**2 + 1, reverse_map(size - 1, i, size))
+        for i in range(input_size):
+            union_find.union(input_size**2, reverse_map(0, i, input_size))
+            union_find.union(input_size**2 + 1,
+                             reverse_map(input_size - 1, i, input_size))
 
         dx = [1, -1, 0, 0]
         dy = [0, 0, 1, -1]
 
         count = 0
-        for pos in population:
+        for position in population:
             count += 1
-            x, y = map_pos(pos, size)
-            active[pos] = True
+            x, y = map_pos(position, input_size)
+            active_pos[position] = True
             for i in range(4):
                 nx = x + dx[i]
                 ny = y + dy[i]
-                if valid(nx, ny, size) and active[reverse_map(nx, ny, size)]:
-                    union_find.union(pos, reverse_map(nx, ny, size))
+                if valid(nx, ny, input_size) and active_pos[reverse_map(nx, ny, input_size)]:
+                    union_find.union(position, reverse_map(nx, ny, input_size))
 
-            for event in pygame.event.get():
-                handle(event)
-            draw(size, union_find, active)
+            for game_event in pygame.event.get():
+                handle(game_event)
+            draw(input_size, union_find, active_pos)
 
-            if union_find.connected(size**2, size**2 + 1):
-                total += count / size**2
+            if union_find.connected(input_size**2, input_size**2 + 1):
+                total += count / input_size**2
                 time.sleep(1)
                 break
 
