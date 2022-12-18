@@ -1,4 +1,8 @@
+"""Module with Trie implementations."""
+
+
 class TrieNode:
+    """Class that represents a node in the Trie."""
 
     def __init__(self, alphabet, symbol):
         self.alphabet = alphabet
@@ -6,20 +10,44 @@ class TrieNode:
         self.final = False
         self.edges = {}
 
-    def add_edge(self, symbol):
+    def add_edge(self, symbol: str):
+        """Adds an edge between the node and a new node
+        with the symbol supplied.
+
+        Args:
+            symbol (str): The symbol of the new node.
+
+        Returns:
+            TrieNode: The new node.
+        """
         self.edges[symbol] = TrieNode(self.alphabet, symbol)
         return self.edges[symbol]
 
-    def get_node(self, symbol):
+    def get_node(self, symbol: str):
+        """Returns the adjacent node with the symbol supplied.
+
+        Args:
+            symbol (str): The symbol to look for the node.
+
+        Returns:
+            TrieNode: The adjacent node. None in case it doesn't exist.
+        """
         return self.edges.get(symbol, None)
 
 
 class Trie:
+    """Class that represents a Trie."""
+
     def __init__(self, alphabet):
         self.alphabet = alphabet
         self.root = TrieNode(alphabet, '^')
 
-    def insert(self, word):
+    def insert(self, word: str):
+        """Inserts a word in the Trie.
+
+        Args:
+            word (str): The word to be inserted.
+        """
         cur_node = self.root
         for symbol in word:
             next_node = cur_node.get_node(symbol)
@@ -28,7 +56,15 @@ class Trie:
             cur_node = next_node
         cur_node.final = True
 
-    def search(self, word):
+    def search(self, word: str) -> bool:
+        """Searches for a word in the Trie.
+
+        Args:
+            word (str): The word to look for.
+
+        Returns:
+            bool: True if the word is found, False otherwise.
+        """
         cur_node = self.root
         for symbol in word:
             next_node = cur_node.get_node(symbol)
@@ -37,7 +73,16 @@ class Trie:
             cur_node = next_node
         return cur_node.final
 
-    def search_prefix(self, word):
+    def search_prefix(self, word: str) -> bool:
+        """Checks if the word supplied is a prefix
+        of some word in the Trie.
+
+        Args:
+            word (str): The word to check for prefix.
+
+        Returns:
+            bool: True if "word" is prefix of some other word in the Trie, False otherwise.
+        """
         cur_node = self.root
         for symbol in word:
             next_node = cur_node.get_node(symbol)
