@@ -1,6 +1,9 @@
 """Module with Trie implementations."""
 
 
+import pydot
+
+
 class TrieNode:
     """Class that represents a node in the Trie."""
 
@@ -41,7 +44,7 @@ class Trie:
 
     def __init__(self, alphabet):
         self.alphabet = alphabet
-        self.root = TrieNode(alphabet, '^')
+        self.root = TrieNode(alphabet, "^")
 
     def insert(self, word: str):
         """Inserts a word in the Trie.
@@ -104,3 +107,43 @@ class Trie:
                 return 0
             cur_node = next_node
         return cur_node.cnt
+
+    def get_visual_representation(self) -> pydot.Dot:
+        """Gets a visual representation of the trie seen
+        as a graph.
+
+        Returns:
+            pydot.Dot: A dot object describing the trie as a graph.
+        """
+        edges = self._get_edges(self.root)
+        nodes = self._get_nodes(edges)
+
+        graph = pydot.Dot("trie", graph_type="graph")
+        for node in nodes:
+            graph.add_node(
+                pydot.Node(
+                    name=str(node),
+                    shape="doublecircle" if node.final else "circle",
+                    label=node.symbol,
+                )
+            )
+        for edge in edges:
+            graph.add_edge(pydot.Edge(str(edge[0]), str(edge[1])))
+
+        return graph
+
+    def _get_edges(self, node: TrieNode):
+        edges = set()
+        for symbol in self.alphabet:
+            next_node = node.get_node(symbol)
+            if next_node is not None:
+                edges.add((node, next_node))
+                edges |= self._get_edges(next_node)
+        return edges
+
+    def _get_nodes(self, edges):
+        nodes = set()
+        for edge in edges:
+            nodes.add(edge[0])
+            nodes.add(edge[1])
+        return nodes
