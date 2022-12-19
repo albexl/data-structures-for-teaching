@@ -9,6 +9,7 @@ class TrieNode:
         self.symbol = symbol
         self.final = False
         self.edges = {}
+        self.cnt = 0
 
     def add_edge(self, symbol: str):
         """Adds an edge between the node and a new node
@@ -54,6 +55,7 @@ class Trie:
             if next_node is None:
                 next_node = cur_node.add_edge(symbol)
             cur_node = next_node
+        cur_node.cnt += 1
         cur_node.final = True
 
     def search(self, word: str) -> bool:
@@ -90,3 +92,24 @@ class Trie:
                 return False
             cur_node = next_node
         return True
+
+    def count_insertions(self, word: str) -> int:
+        """Counts the number of times the word supplied
+        has been inserted in the Trie.
+
+        Args:
+            word (str): The word to count
+
+
+        Returns:
+            int: The number of times `word` has been inserted in the Trie
+        """
+
+        cur_node = self.root
+        for symbol in word:
+            next_node = cur_node.get_node(symbol)
+            if next_node is None:
+                return 0
+            cur_node = next_node
+
+        return cur_node.cnt
