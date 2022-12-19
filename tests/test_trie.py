@@ -38,14 +38,15 @@ class TestTrie(TestCase):
         self.assertTrue(self.trie.search_prefix("abc"))
 
     def test_count_insertions_word_not_inserted(self):
-        """Checks that words that haven't been inserted are not counted"""
+        """Checks that the count of words that haven't been inserted is 0."""
         self.trie.insert("abc")
         self.assertEqual(self.trie.count_insertions("xyz"), 0)
 
     def test_count_insertions(self):
-        """Checks inserted words are counted the correct number of times"""
+        """Checks inserted words are counted the correct number of times."""
         self.trie.insert("abc")
         self.trie.insert("abc")
+        self.trie.insert("a")
         self.assertEqual(self.trie.count_insertions("abc"), 2)
-        self.assertEqual(self.trie.count_insertions("a"), 0)
+        self.assertEqual(self.trie.count_insertions("a"), 1)
         self.assertEqual(self.trie.count_insertions("ab"), 0)
