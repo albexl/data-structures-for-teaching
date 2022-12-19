@@ -2,7 +2,7 @@
 
 Thank you for contributing to this project! We expect all contributors to have read this file before submitting Pull Requests.
 
-Each data structure is on the `data_structures` directory. Every subdirectory in it should contain the implementation, client code, application examples, etc...
+Each data structure is in the `data_structures` directory. Every subdirectory in it should contain the implementation, client code, application examples, etc...
 
 ## Pull Requests
 
@@ -10,11 +10,11 @@ To make changes to `data-structures-for-teaching`, submit a Pull Request to the 
 
 ## Issues
 
-For every bug found, typo or just to suggest some improvement of any kind, create a new issue. You can even solve it your yourself.
+For every bug found, typo or just to suggest some improvement of any kind, create a new issue. You can even solve it yourself.
 
 ## Testing
 
-We are trying hard to test every implementation we make. So, add a unit tests in the `tests` directory checking the correctness of your changes.
+We are trying hard to test every implementation we make. So, add unit tests in the `tests` directory to check the correctness of your changes.
 
 To run the tests, run the following command in the root directory:
 
