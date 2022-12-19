@@ -10,7 +10,7 @@ class TestTrie(TestCase):
     """Class to test the Trie implementation."""
 
     def setUp(self):
-        self.trie = Trie(['a, b, c'])
+        self.trie = Trie(["a, b, c"])
 
     def test_search_before_insert(self):
         """Checks no word is found when just created."""

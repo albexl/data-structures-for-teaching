@@ -3,7 +3,7 @@
 
 from typing import Dict, Iterator, List, Protocol, Tuple, TypeVar
 
-Location = TypeVar('Location')
+Location = TypeVar("Location")
 
 
 class Graph(Protocol):
@@ -69,8 +69,7 @@ class Grid(Graph):
         (pos_x, pos_y) = node_id
         dir_x = [1, -1, 0, 0]
         dir_y = [0, 0, 1, -1]
-        neighbors = [(pos_x + dir_x[i], pos_y + dir_y[i])
-                     for i in range(len(dir_x))]
+        neighbors = [(pos_x + dir_x[i], pos_y + dir_y[i]) for i in range(len(dir_x))]
         neighbors = filter(self.in_bounds, neighbors)
         neighbors = filter(self.passable, neighbors)
         return neighbors

@@ -39,25 +39,44 @@ def draw(size, disjoint_sets, active):
         for col in range(size):
             pos = reverse_map(row, col, size)
             if active[pos]:
-                rect = pygame.Rect(col * (HEIGHT // size), row *
-                                   (HEIGHT // size), HEIGHT // size, HEIGHT // size)
-                pygame.draw.rect(game_display, blue_color if disjoint_sets.connected(
-                    size**2, pos) else white_color, rect)
+                rect = pygame.Rect(
+                    col * (HEIGHT // size),
+                    row * (HEIGHT // size),
+                    HEIGHT // size,
+                    HEIGHT // size,
+                )
+                pygame.draw.rect(
+                    game_display,
+                    blue_color
+                    if disjoint_sets.connected(size**2, pos)
+                    else white_color,
+                    rect,
+                )
 
     for row in range(size):
-        pygame.draw.line(game_display, black_color,
-                         (row * (HEIGHT // size), 0), (row * (HEIGHT // size), WIDTH), width=3)
+        pygame.draw.line(
+            game_display,
+            black_color,
+            (row * (HEIGHT // size), 0),
+            (row * (HEIGHT // size), WIDTH),
+            width=3,
+        )
 
     for col in range(size):
-        pygame.draw.line(game_display, black_color,
-                         (0, col * (WIDTH // size)), (HEIGHT, col * (WIDTH // size)), width=3)
+        pygame.draw.line(
+            game_display,
+            black_color,
+            (0, col * (WIDTH // size)),
+            (HEIGHT, col * (WIDTH // size)),
+            width=3,
+        )
 
     pygame.display.update()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    trials = int(input('Enter amount of trials: '))
+    trials = int(input("Enter amount of trials: "))
 
     input_sizes = [random.randint(1, 50) for _ in range(trials)]
 
@@ -70,7 +89,7 @@ if __name__ == '__main__':
 
     for input_size in input_sizes:
 
-        print(f'Solving for input size: {input_size}')
+        print(f"Solving for input size: {input_size}")
 
         union_find = WeightedQuickUnion(input_size**2 + 2)
         population = list(range(input_size**2))
@@ -79,8 +98,9 @@ if __name__ == '__main__':
 
         for i in range(input_size):
             union_find.union(input_size**2, reverse_map(0, i, input_size))
-            union_find.union(input_size**2 + 1,
-                             reverse_map(input_size - 1, i, input_size))
+            union_find.union(
+                input_size**2 + 1, reverse_map(input_size - 1, i, input_size)
+            )
 
         dx = [1, -1, 0, 0]
         dy = [0, 0, 1, -1]
@@ -93,7 +113,10 @@ if __name__ == '__main__':
             for i in range(4):
                 nx = x + dx[i]
                 ny = y + dy[i]
-                if valid(nx, ny, input_size) and active_pos[reverse_map(nx, ny, input_size)]:
+                if (
+                    valid(nx, ny, input_size)
+                    and active_pos[reverse_map(nx, ny, input_size)]
+                ):
                     union_find.union(position, reverse_map(nx, ny, input_size))
 
             for game_event in pygame.event.get():
@@ -105,4 +128,4 @@ if __name__ == '__main__':
                 time.sleep(1)
                 break
 
-    print(f'Percolation threshold: {total / trials}')
+    print(f"Percolation threshold: {total / trials}")

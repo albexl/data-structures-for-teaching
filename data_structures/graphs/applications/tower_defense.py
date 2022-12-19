@@ -67,10 +67,15 @@ def _draw(board, destination, origins):
 
     for i in range(size):
         for j in range(size):
-            rect = pygame.Rect(j * (HEIGHT // size), i *
-                               (HEIGHT // size), HEIGHT // size, HEIGHT // size)
+            rect = pygame.Rect(
+                j * (HEIGHT // size),
+                i * (HEIGHT // size),
+                HEIGHT // size,
+                HEIGHT // size,
+            )
             pygame.draw.rect(
-                game_display, black_color if board[i][j] else white_color, rect)
+                game_display, black_color if board[i][j] else white_color, rect
+            )
 
             if destination == (i, j):
                 pygame.draw.rect(game_display, green_color, rect)
@@ -79,12 +84,22 @@ def _draw(board, destination, origins):
                 pygame.draw.rect(game_display, red_color, rect)
 
     for i in range(size + 1):
-        pygame.draw.line(game_display, grey_color,
-                         (i * (HEIGHT // size), 0), (i * (HEIGHT // size), WIDTH), width=1)
+        pygame.draw.line(
+            game_display,
+            grey_color,
+            (i * (HEIGHT // size), 0),
+            (i * (HEIGHT // size), WIDTH),
+            width=1,
+        )
 
     for i in range(size + 1):
-        pygame.draw.line(game_display, grey_color,
-                         (0, i * (WIDTH // size)), (HEIGHT, i * (WIDTH // size)), width=1)
+        pygame.draw.line(
+            game_display,
+            grey_color,
+            (0, i * (WIDTH // size)),
+            (HEIGHT, i * (WIDTH // size)),
+            width=1,
+        )
 
     pygame.display.update()
 
@@ -127,7 +142,11 @@ def _bfs(board, destination, size):
         for i in range(4):
             new_x = x_coord + dir_x[i]
             new_y = y_coord + dir_y[i]
-            if _valid(new_x, new_y, size) and (not board[new_x][new_y]) and distances[new_x][new_y] == -1:
+            if (
+                _valid(new_x, new_y, size)
+                and (not board[new_x][new_y])
+                and distances[new_x][new_y] == -1
+            ):
                 distances[new_x][new_y] = distances[x_coord][y_coord] + 1
                 queue.put((new_x, new_y))
 
@@ -149,8 +168,7 @@ def _update(board, destination, origins, distances, size):
             new_y = y_coord + dir_y[i]
             if _valid(new_x, new_y, size) and not board[new_x][new_y]:
                 if distances[new_x][new_y] < min_dist:
-                    next_move, min_dist = (
-                        new_x, new_y), distances[new_x][new_y]
+                    next_move, min_dist = (new_x, new_y), distances[new_x][new_y]
         updated_origins.append(next_move)
 
     origins = []
@@ -173,7 +191,12 @@ def _update(board, destination, origins, distances, size):
     return origins
 
 
-def simulate(board: List[List[bool]], destination: Tuple[int, int], origins: List[Tuple[int, int]], size: int):
+def simulate(
+    board: List[List[bool]],
+    destination: Tuple[int, int],
+    origins: List[Tuple[int, int]],
+    size: int,
+):
     """Simulate the movements of a Tower Defense-like game.
 
     Args:
@@ -190,8 +213,8 @@ def simulate(board: List[List[bool]], destination: Tuple[int, int], origins: Lis
         origins = _update(board, destination, origins, distances, size)
 
 
-if __name__ == '__main__':
-    board_size = int(input('Enter dimension of the system: '))
+if __name__ == "__main__":
+    board_size = int(input("Enter dimension of the system: "))
     game_board, dest_location, origin_locations = setup(board_size)
 
     pygame.init()

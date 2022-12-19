@@ -11,7 +11,7 @@ class TestQueue(TestCase):
 
     def setUp(self):
         self.queue = Queue()
-        self.test_items = ['A', 'B', 'C']
+        self.test_items = ["A", "B", "C"]
 
     def test_empty_queue(self):
         """Checks queue is empty when just created."""

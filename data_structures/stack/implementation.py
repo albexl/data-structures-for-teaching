@@ -1,7 +1,7 @@
 """Stack implementations."""
 
 
-class LinkedStack():
+class LinkedStack:
     """Implementation of stack using linked list."""
 
     def __init__(self):
@@ -35,7 +35,7 @@ class LinkedStack():
         return item
 
 
-class ArrayBasedStack():
+class ArrayBasedStack:
     """Implementation of stack using array."""
 
     def __init__(self):

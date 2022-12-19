@@ -3,8 +3,11 @@
 
 from unittest import TestCase
 
-from data_structures.union_find.implementation import (QuickFind, QuickUnion,
-                                                       WeightedQuickUnion)
+from data_structures.union_find.implementation import (
+    QuickFind,
+    QuickUnion,
+    WeightedQuickUnion,
+)
 
 
 class BaseTestUnionFind(TestCase):

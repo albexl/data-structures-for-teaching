@@ -27,15 +27,15 @@ def breadth_first_search(graph: Graph, start: Location):
                 reached[node] = True
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     example_graph = SimpleGraph()
     example_graph.edges = {
-        'A': ['B'],
-        'B': ['C'],
-        'C': ['B', 'D', 'F'],
-        'D': ['C', 'E'],
-        'E': ['F'],
-        'F': [],
+        "A": ["B"],
+        "B": ["C"],
+        "C": ["B", "D", "F"],
+        "D": ["C", "E"],
+        "E": ["F"],
+        "F": [],
     }
 
-    breadth_first_search(example_graph, 'A')
+    breadth_first_search(example_graph, "A")

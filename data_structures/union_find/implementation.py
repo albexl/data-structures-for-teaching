@@ -1,7 +1,7 @@
 """Union Find implementations."""
 
 
-class UnionFind():
+class UnionFind:
     """Base class for Union Find implementation."""
 
     def __init__(self, size: int):
