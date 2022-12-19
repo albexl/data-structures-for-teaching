@@ -59,7 +59,7 @@ class Trie:
         cur_node.final = True
 
     def search(self, word: str) -> bool:
-        """Searches for a word in the Trie.
+        """Checks if the word supplied is present in the trie.
 
         Args:
             word (str): The word to look for.
@@ -67,13 +67,7 @@ class Trie:
         Returns:
             bool: True if the word is found, False otherwise.
         """
-        cur_node = self.root
-        for symbol in word:
-            next_node = cur_node.get_node(symbol)
-            if next_node is None:
-                return False
-            cur_node = next_node
-        return cur_node.final
+        return self.count_insertions(word) > 0
 
     def search_prefix(self, word: str) -> bool:
         """Checks if the word supplied is a prefix
@@ -98,18 +92,15 @@ class Trie:
         has been inserted in the Trie.
 
         Args:
-            word (str): The word to count
-
+            word (str): The word to count insertions.
 
         Returns:
-            int: The number of times `word` has been inserted in the Trie
+            int: The number of times `word` has been inserted in the Trie.
         """
-
         cur_node = self.root
         for symbol in word:
             next_node = cur_node.get_node(symbol)
             if next_node is None:
                 return 0
             cur_node = next_node
-
         return cur_node.cnt
