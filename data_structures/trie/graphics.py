@@ -1,7 +1,7 @@
 """Module to generate visual representations of tries."""
 
 
-from implementation import Trie
+from .implementation import Trie
 
 trie = Trie(["a", "b", "c", "d", "e"])
 trie.insert("abc")
