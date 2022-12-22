@@ -1,3 +1,4 @@
 pydot
 pygame
 pytest
+typer
