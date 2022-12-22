@@ -61,6 +61,31 @@ class Trie:
         cur_node.cnt += 1
         cur_node.final = True
 
+    def remove(self, word: str, times: int):
+        """Removes a number of occurrences of a word.
+
+        Args:
+            word (str): The word to remove.
+            times (int): How many occurrences to remove.
+        """
+        cur_node = self.root
+        for symbol in word:
+            next_node = cur_node.get_node(symbol)
+            if next_node is None:
+                return
+            cur_node = next_node
+        if cur_node.final:
+            cur_node.cnt = max(0, cur_node.cnt - times)
+
+    def remove_all(self, word: str):
+        """Removes all occurrences of a word.
+
+        Args:
+            word (str): The word to remove.
+        """
+        times = self.count_insertions(word)
+        self.remove(word, times)
+
     def search(self, word: str) -> bool:
         """Checks if the word supplied is present in the trie.
 
