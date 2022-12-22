@@ -143,13 +143,13 @@ class Trie:
         edges = self._get_edges(self.root)
         nodes = self._get_nodes(edges)
 
-        graph = pydot.Dot("trie", graph_type="graph")
+        graph = pydot.Dot("trie", graph_type="digraph")
         for node in nodes:
             graph.add_node(
                 pydot.Node(
                     name=str(node),
                     shape="doublecircle" if node.final else "circle",
-                    label=node.symbol,
+                    label=f"{node.symbol}: {node.cnt}" if node.final else node.symbol,
                 )
             )
         for edge in edges:
