@@ -2,7 +2,7 @@
 
 import typer
 
-from implementation import Trie
+from .implementation import Trie
 
 
 def create_png(output_directory: str):
