@@ -39,3 +39,7 @@ The order of the imported libraries is important in Python. Among other things, 
 ```bash
 isort .
 ```
+
+## Code of Conduct
+
+We are trying to create a healthy community that thrives on the desire to learn and share knowledge. See [CODE_OF_CONDUCT.md](https://github.com/albexl/data-structures-for-teaching/blob/dev/CODE_OF_CONDUCT.md) to check our behavioral rules on this project.
