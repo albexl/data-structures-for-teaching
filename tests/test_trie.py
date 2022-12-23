@@ -67,3 +67,15 @@ class TestTrie(TestCase):
         self.trie.insert("abc")
         self.trie.remove_all("abc")
         self.assertEqual(self.trie.count_insertions("abc"), 0)
+
+    def test_remove_delete_trash(self):
+        """Checks the trash links are removed after deleting all occurrences of a word."""
+        self.trie.insert("abc")
+        self.trie.insert("abc")
+        self.trie.insert("acb")
+        self.trie.insert("acbb")
+        self.trie.insert("acbb")
+        self.trie.remove_all("acb")
+        self.assertEqual(self.trie.count_insertions("acb"), 0)
+        self.assertEqual(self.trie.count_insertions("abc"), 2)
+        self.assertEqual(self.trie.count_insertions("acbb"), 2)
