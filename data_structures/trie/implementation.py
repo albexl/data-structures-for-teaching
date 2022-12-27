@@ -83,12 +83,15 @@ class Trie:
             cur_node.cnt = max(0, cur_node.cnt - times)
             if cur_node.cnt == 0:
                 cur_node.final = False
-            if cur_node.cnt == 0 and len(cur_node.edges) == 0:
-                while not trace.is_empty():
-                    parent_node, symbol = trace.pop()
-                    parent_node.edges.pop(symbol)
-                    if len(parent_node.edges) != 0:
-                        break
+                if len(cur_node.edges) == 0:
+                    self._clean_links(trace)
+
+    def _clean_links(self, trace):
+        while not trace.is_empty():
+            parent_node, symbol = trace.pop()
+            parent_node.edges.pop(symbol)
+            if len(parent_node.edges) != 0:
+                break
 
     def remove_all(self, word: str):
         """Removes all occurrences of a word.
