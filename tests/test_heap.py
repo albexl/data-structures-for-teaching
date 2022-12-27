@@ -16,7 +16,7 @@ class TestHeap(TestCase):
             self.min_heap.insert(element)
         self.assertEqual(self.min_heap.size, 5)
         self.assertEqual(self.min_heap.heap, [1, 2, 6, 3, 3])
-    
+
     def _test_pop_elements(self):
         """Util function to pop elements from the heap"""
         popped_elements = []

@@ -1,6 +1,6 @@
 """Implementation of running median algorithm"""
 
-from implementation import Heap
+from .implementation import Heap
 
 
 def rebalance(heap1, heap2):

@@ -19,5 +19,5 @@ def create_png(output_directory: str):
     graph.write_png(output_directory)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     typer.run(create_png)
