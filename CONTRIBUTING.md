@@ -8,6 +8,27 @@ Each data structure is in the `data_structures` directory. Every subdirectory in
 
 To make changes to `data-structures-for-teaching`, submit a Pull Request to the `dev` branch. Once it is reviewed, it will either be merged or some changes will be requested. As of now, we have a basic CI setup that can be checked here: [workflow](https://github.com/albexl/data-structures-for-teaching/blob/dev/.github/workflows/check.yaml).
 
+#### Notes on commits:
+
+We would like to have some naming standards on commits. We are going to try as much as we can to use the following format when naming our commits:
+```plain
+<label>: <brief explanation>
+
+<Optional body to explain your changes in more detail>
+```
+
+As of now, the valid labels are:
+* ```doc``` for documentation-related contributions.
+* ```fix``` if you want to fix a bug.
+* ```feat``` if you want to add any new feature. E.g. adding a new algorithm or use case.
+* ```ref``` if you want to refactor some parts of the existing codebase.
+* ```test``` if the change is related to adding tests to our project.
+
+A good example:
+```plain
+feat: Add implementation of heap data structure
+``` 
+
 ## Issues
 
 For every bug found, typo or just to suggest some improvement of any kind, create a new issue. You can even solve it yourself.
