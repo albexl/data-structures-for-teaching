@@ -67,3 +67,18 @@ class TestTrie(TestCase):
         self.trie.insert("abc")
         self.trie.remove_all("abc")
         self.assertEqual(self.trie.count_insertions("abc"), 0)
+
+    def test_remove_delete_trash(self):
+        """Checks the trash links are removed after deleting all occurrences of a word."""
+        self.trie.insert("abc")
+        self.trie.insert("acb")
+        self.trie.remove_all("abc")
+        self.assertEqual(self.trie.count_insertions("abc"), 0)
+        self.assertEqual(self.trie.count_insertions("acb"), 1)
+        self.assertTrue('b' not in self.trie.root.get_node('a').edges)
+
+        # Testing erasing a word that is a prefix of another one
+        self.trie.insert("acbb")
+        self.trie.remove_all("acb")
+        self.assertEqual(self.trie.count_insertions("acb"), 0)
+        self.assertEqual(self.trie.count_insertions("acbb"), 1)

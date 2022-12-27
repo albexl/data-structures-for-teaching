@@ -3,6 +3,8 @@
 
 import pydot
 
+from data_structures.stack.implementation import ArrayBasedStack
+
 
 class TrieNode:
     """Class that represents a node in the Trie."""
@@ -68,14 +70,33 @@ class Trie:
             word (str): The word to remove.
             times (int): How many occurrences to remove.
         """
+        trace = ArrayBasedStack()
         cur_node = self.root
         for symbol in word:
             next_node = cur_node.get_node(symbol)
             if next_node is None:
                 return
+            trace.push([cur_node, symbol])
             cur_node = next_node
+
         if cur_node.final:
             cur_node.cnt = max(0, cur_node.cnt - times)
+            if cur_node.cnt == 0:
+                cur_node.final = False
+                if len(cur_node.edges) == 0:
+                    self._clean_links(trace)
+
+    def _clean_links(self, trace: ArrayBasedStack):
+        """Removes the edges that exclusively lead to a word that was removed.
+
+        Args:
+            trace (ArrayBasedStack): the trace of nodes on the path representing the deleted word in the Trie
+        """
+        while not trace.is_empty():
+            parent_node, symbol = trace.pop()
+            parent_node.edges.pop(symbol)
+            if len(parent_node.edges) != 0:
+                break
 
     def remove_all(self, word: str):
         """Removes all occurrences of a word.
