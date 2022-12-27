@@ -24,10 +24,13 @@ As of now, the valid labels are:
 * ```ref``` if you want to refactor some parts of the existing codebase.
 * ```test``` if the change is related to adding tests to our project.
 
-A good example:
+A few good examples are:
 ```plain
 feat: Add implementation of heap data structure
-``` 
+test: Add tests for heap implementation
+```
+
+Try to name the Pull Requests you create using the same labels as in the commits.
 
 ## Issues
 
