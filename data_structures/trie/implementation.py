@@ -86,7 +86,12 @@ class Trie:
                 if len(cur_node.edges) == 0:
                     self._clean_links(trace)
 
-    def _clean_links(self, trace):
+    def _clean_links(self, trace: ArrayBasedStack):
+        """Removes the edges that exclusively lead to a word that was removed.
+
+        Args:
+            trace (ArrayBasedStack): the trace of nodes on the path representing the deleted word in the Trie
+        """
         while not trace.is_empty():
             parent_node, symbol = trace.pop()
             parent_node.edges.pop(symbol)
