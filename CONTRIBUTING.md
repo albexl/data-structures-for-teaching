@@ -6,7 +6,7 @@ Each data structure is in the `data_structures` directory. Every subdirectory in
 
 ## Pull Requests
 
-To make changes to `data-structures-for-teaching`, submit a Pull Request to the `dev` branch. Once it is reviewed, it will either be merged or some changes will be requested. As of now, we have a basic CI setup that can be checked here: [workflow](https://github.com/albexl/data-structures-for-teaching/blob/dev/.github/workflows/check.yaml).
+To make changes to `data-structures-for-teaching`, submit a Pull Request to the `dev` branch. Once it is reviewed, it will either be merged or some changes will be requested. As of now, we have a basic CI setup that can be checked here: [check.yaml](./.github/workflows/check.yaml).
 
 #### Notes on commits:
 
@@ -66,4 +66,4 @@ isort .
 
 ## Code of Conduct
 
-We are trying to create a healthy community that thrives on the desire to learn and share knowledge. See [CODE_OF_CONDUCT.md](https://github.com/albexl/data-structures-for-teaching/blob/dev/CODE_OF_CONDUCT.md) to check our behavioral rules on this project.
+We are trying to create a healthy community that thrives on the desire to learn and share knowledge. See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) to check our behavioral rules on this project.
