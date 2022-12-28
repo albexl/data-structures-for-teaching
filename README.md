@@ -12,21 +12,21 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 - [x] [Heap](./data_structures/heap/implementation.py)
 - [x] [Union-Find](./data_structures/union_find/implementation.py)
 - [x] [Graphs](./data_structures/graphs/implementation.py)
-- [] Linked List
+- Linked List
 
 ## Algorithms:
 
 ### Sorting Algorithms:
 
-- [] Bubble-Sort
-- [] Heap-Sort
-- [] Merge-Sort
-- [] Quick-Sort.
+- Bubble-Sort
+- Heap-Sort
+- Merge-Sort
+- Quick-Sort.
 
 ### Graph Algorithms:
 
-- [] Breadth-First Search
-- [] Depth-First Search
+- Breadth-First Search
+- Depth-First Search
 
 ## Contributing
 
