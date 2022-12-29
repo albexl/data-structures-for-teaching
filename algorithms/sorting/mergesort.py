@@ -1,21 +1,11 @@
 """Module with the implementation of the MergeSort algorithm."""
 
 
-class MergeSort:
+from .sort import Sort
+
+
+class MergeSort(Sort):
     """Class that represents a MergeSort implementation."""
-
-    def __init__(self, func, items):
-        self._comp_func = func
-        self._items = items
-
-    def sort(self):
-        """Returns the sorted version of the elements contained
-        in the `_items` property.
-
-        Returns:
-            List: The sorted elements.
-        """
-        return self._sort(self._items)
 
     def _sort(self, items):
         if len(items) <= 1:
