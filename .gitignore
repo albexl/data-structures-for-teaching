@@ -1,4 +1,7 @@
 __pycache__/
 junit
+.tox
+.vscode
+.pytest_cache
 .coverage
 *.png
