@@ -6,6 +6,8 @@ from data_structures.heap.implementation import Heap
 
 
 class TestHeap(TestCase):
+    """Class to test the Heap implementation."""
+
     def setUp(self):
         self.min_heap = Heap(lambda x, y: x < y)
         self.elements = [3, 2, 6, 1, 3]
