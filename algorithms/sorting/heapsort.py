@@ -1,7 +1,8 @@
 """Module with the implementation of the HeapSort algorithm."""
 
 
-from ...data_structures.heap.implementation import Heap
+from data_structures.heap.implementation import Heap
+
 from .sort import Sort
 
 
