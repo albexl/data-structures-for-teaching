@@ -75,7 +75,7 @@ class TestTrie(TestCase):
         self.trie.remove_all("abc")
         self.assertEqual(self.trie.count_insertions("abc"), 0)
         self.assertEqual(self.trie.count_insertions("acb"), 1)
-        self.assertTrue('b' not in self.trie.root.get_node('a').edges)
+        self.assertTrue("b" not in self.trie.root.get_node("a").edges)
 
         # Testing erasing a word that is a prefix of another one
         self.trie.insert("acbb")
