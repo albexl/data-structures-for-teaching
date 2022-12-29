@@ -20,7 +20,7 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 
 - [ ] Bubble-Sort
 - [ ] Heap-Sort
-- [x] Merge-Sort
+- [x] [Merge-Sort](./algorithms/sorting/mergesort.py)
 - [ ] Quick-Sort.
 
 ### Graph Algorithms:
