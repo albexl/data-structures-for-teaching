@@ -4,6 +4,7 @@
 from unittest import TestCase
 
 from algorithms.sorting.mergesort import MergeSort
+from algorithms.sorting.bubblesort import BubbleSort
 
 
 class TestSort(TestCase):
@@ -31,3 +32,14 @@ class TestMergeSort(TestSort):
         self.items = [2, 4, 1, 4, 3, 9, 2, 1]
         self.expected_result = [1, 1, 2, 2, 3, 4, 4, 9]
         self.sorter = MergeSort(lambda x, y: x < y, self.items)
+
+
+class TestBubbleSort(TestSort):
+    """Class to test the Bubble Sort implementation."""
+
+    __test__ = True
+
+    def setUp(self):
+        self.items = [2, 4, 1, 4, 3, 9, 2, 1]
+        self.expected_result = [1, 1, 2, 2, 3, 4, 4, 9]
+        self.sorter = BubbleSort(lambda x, y: x < y, self.items)

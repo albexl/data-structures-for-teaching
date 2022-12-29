@@ -18,7 +18,7 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 
 ### Sorting Algorithms:
 
-- [ ] Bubble-Sort
+- [x] [Bubble-Sort](./algorithms/sorting/bubblesort.py)
 - [ ] Heap-Sort
 - [x] [Merge-Sort](./algorithms/sorting/mergesort.py)
 - [ ] Quick-Sort.
