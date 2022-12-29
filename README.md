@@ -20,7 +20,7 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 
 - [ ] Bubble-Sort
 - [ ] Heap-Sort
-- [ ] Merge-Sort
+- [x] Merge-Sort
 - [ ] Quick-Sort.
 
 ### Graph Algorithms:
