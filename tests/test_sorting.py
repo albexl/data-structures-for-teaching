@@ -47,7 +47,7 @@ class TestBubbleSort(TestSort):
 
 
 class TestHeapSort(TestSort):
-    """Class to test the Bubble Sort implementation."""
+    """Class to test the Heap Sort implementation."""
 
     __test__ = True
 
