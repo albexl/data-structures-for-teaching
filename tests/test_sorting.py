@@ -8,7 +8,7 @@ from algorithms.sorting.heapsort import HeapSort
 from algorithms.sorting.mergesort import MergeSort
 
 
-class TestSort(TestCase):
+class TestSort:
     """Base class to test Sorting implementations."""
 
     __test__ = False
@@ -24,7 +24,7 @@ class TestSort(TestCase):
         self.assertEqual(sorted_items, self.expected_result)
 
 
-class TestMergeSort(TestSort):
+class TestMergeSort(TestSort, TestCase):
     """Class to test the Merge Sort implementation."""
 
     __test__ = True
@@ -35,7 +35,7 @@ class TestMergeSort(TestSort):
         self.sorter = MergeSort(lambda x, y: x < y, self.items)
 
 
-class TestBubbleSort(TestSort):
+class TestBubbleSort(TestSort, TestCase):
     """Class to test the Bubble Sort implementation."""
 
     __test__ = True
@@ -46,7 +46,7 @@ class TestBubbleSort(TestSort):
         self.sorter = BubbleSort(lambda x, y: x < y, self.items)
 
 
-class TestHeapSort(TestSort):
+class TestHeapSort(TestSort, TestCase):
     """Class to test the Bubble Sort implementation."""
 
     __test__ = True

@@ -10,7 +10,7 @@ from data_structures.union_find.implementation import (
 )
 
 
-class BaseTestUnionFind(TestCase):
+class BaseTestUnionFind:
     """Base class to test Union Find implementation."""
 
     __test__ = False
@@ -36,7 +36,7 @@ class BaseTestUnionFind(TestCase):
         self.assertTrue(self.union_find.connected(0, 1))
 
 
-class TestWeightedQuickUnion(BaseTestUnionFind):
+class TestWeightedQuickUnion(BaseTestUnionFind, TestCase):
     """Class to test the WeightedQuickUnion implementation."""
 
     __test__ = True
@@ -45,7 +45,7 @@ class TestWeightedQuickUnion(BaseTestUnionFind):
         self.union_find = WeightedQuickUnion(5)
 
 
-class TestQuickUnion(BaseTestUnionFind):
+class TestQuickUnion(BaseTestUnionFind, TestCase):
     """Class to test the QuickUnion implementation."""
 
     __test__ = True
@@ -54,7 +54,7 @@ class TestQuickUnion(BaseTestUnionFind):
         self.union_find = QuickUnion(5)
 
 
-class TestQuickFind(BaseTestUnionFind):
+class TestQuickFind(BaseTestUnionFind, TestCase):
     """Class to test the QuickFind implementation."""
 
     __test__ = True

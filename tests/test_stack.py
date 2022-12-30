@@ -6,7 +6,7 @@ from unittest import TestCase
 from data_structures.stack.implementation import ArrayBasedStack, LinkedStack
 
 
-class BaseTestStack(TestCase):
+class BaseTestStack:
     """Base class to test Stack implementation."""
 
     __test__ = False
@@ -29,7 +29,7 @@ class BaseTestStack(TestCase):
         self.assertEqual(retrieved_items, list(reversed(self.test_items)))
 
 
-class TestArrayBaseStack(BaseTestStack):
+class TestArrayBaseStack(BaseTestStack, TestCase):
     """Class to test the ArrayBasedStack implementation."""
 
     __test__ = True
@@ -39,7 +39,7 @@ class TestArrayBaseStack(BaseTestStack):
         self.test_items = [1, 2, 3]
 
 
-class TestLinkedStack(BaseTestStack):
+class TestLinkedStack(BaseTestStack, TestCase):
     """Class to test the LinkedStack implementation."""
 
     __test__ = True
