@@ -1,15 +1,18 @@
 """Union Find implementations."""
 
+from abc import ABC, abstractmethod
 
-class UnionFind:
+
+class UnionFind(ABC):
     """Base class for Union Find implementation."""
 
     def __init__(self, size: int):
         self.size = size
         self.ids = list(range(size))
 
+    @abstractmethod
     def connected(self, node_a: int, node_b: int) -> bool:
-        """Checks if "node_a" and "node_b" belong to the same
+        """Checks if `node_a` and `node_b` belong to the same
         connected component.
 
         Args:
@@ -17,12 +20,13 @@ class UnionFind:
             node_b (int): Node to check.
 
         Returns:
-            bool: True if "node_a" and "node_b" belong to the same component,
+            bool: True if `node_a` and `node_b` belong to the same component,
             False otherwise.
         """
 
+    @abstractmethod
     def union(self, node_a: int, node_b: int):
-        """Joins node_a and node_b, making them both
+        """Joins `node_a` and `node_b`, making them both
         be a part of the same connected component.
 
         Args:
