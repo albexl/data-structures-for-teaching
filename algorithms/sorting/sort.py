@@ -1,7 +1,9 @@
 """Module with the base implementation of a Sort class."""
 
+from abc import ABC, abstractmethod
 
-class Sort:
+
+class Sort(ABC):
     """Base class for sorting."""
 
     def __init__(self, func, items):
@@ -17,5 +19,6 @@ class Sort:
         """
         return self._sort(self._items)
 
+    @abstractmethod
     def _sort(self, items):
         pass
