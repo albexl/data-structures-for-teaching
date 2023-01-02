@@ -1,3 +1,6 @@
+"""Implementation of the Heap data structure."""
+
+
 class Heap:
     """
     Class implementation of the heap data structure
@@ -71,7 +74,9 @@ class Heap:
         return self._heap[0] if self.size > 0 else None
 
     def pop(self):
-        """Returns the element in the root of the heap removing it and keeping heap's invariants after it."""
+        """Returns the element in the root of the heap removing it
+        and keeping heap's invariants after it.
+        """
         root = self.peek()
         self._heap[0] = self._heap[self.size - 1]
         self.size -= 1
