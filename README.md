@@ -31,6 +31,12 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 - [ ] Tim Sort
 - [ ] Gnome Sort
 
+### Search Algorithms:
+
+- [ ] Linear Search
+- [ ] Binary Search
+- [ ] Ternary Search
+
 ### Graph Algorithms:
 
 - [ ] Breadth-First Search
