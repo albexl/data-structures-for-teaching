@@ -1,6 +1,5 @@
 """Module with the implementation of the MergeSort algorithm."""
 
-
 from .sort import Sort
 
 
@@ -11,13 +10,20 @@ class MergeSort(Sort):
         if len(items) <= 1:
             return items
 
-        left = items[0 : len(items) // 2]
-        right = items[len(items) // 2 : len(items)]
+        sorted_items = items.copy()
+        chunk_size = 1
+        while chunk_size < len(sorted_items):
 
-        left = self._sort(left)
-        right = self._sort(right)
+            i = 0
+            while i < len(sorted_items):
+                mid = i + chunk_size
+                j = min(i + 2 * chunk_size, len(sorted_items))
+                sorted_items[i:j] = self._merge(sorted_items[i:mid], sorted_items[mid:j])
 
-        sorted_items = self._merge(left, right)
+                i += chunk_size * 2
+
+            chunk_size = chunk_size * 2
+
         return sorted_items
 
     def _merge(self, left, right):
