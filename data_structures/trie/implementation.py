@@ -48,11 +48,13 @@ class Trie:
         self.alphabet = alphabet
         self.root = TrieNode(alphabet, "^")
 
-    def insert(self, word: str):
-        """Inserts a word in the Trie.
+    def insert(self, word: str, times: int = 1):
+        """Inserts a word in the Trie as many times as
+        the `times` argument.
 
         Args:
             word (str): The word to be inserted.
+            times (int, optional): How many occurrences to insert. Defaults to 1.
         """
         cur_node = self.root
         for symbol in word:
@@ -60,15 +62,15 @@ class Trie:
             if next_node is None:
                 next_node = cur_node.add_edge(symbol)
             cur_node = next_node
-        cur_node.cnt += 1
+        cur_node.cnt += times
         cur_node.final = True
 
-    def remove(self, word: str, times: int):
+    def remove(self, word: str, times: int = 1):
         """Removes a number of occurrences of a word.
 
         Args:
             word (str): The word to remove.
-            times (int): How many occurrences to remove.
+            times (int, optional): How many occurrences to remove. Defaults to 1.
         """
         trace = ArrayBasedStack()
         cur_node = self.root
