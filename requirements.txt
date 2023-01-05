@@ -3,3 +3,4 @@ pydot
 pygame
 pytest
 typer
+typing-extensions
