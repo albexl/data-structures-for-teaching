@@ -10,11 +10,12 @@ class BubbleSort(Sort):
     def _sort(self, items):
         size = len(items)
         swapped = True
+        sorted_items = items.copy()
         while swapped:
             swapped = False
             for i in range(1, size):
-                if not self._comp_func(items[i - 1], items[i]):
-                    items[i - 1], items[i] = items[i], items[i - 1]
+                if not self._comp_func(sorted_items[i - 1], sorted_items[i]):
+                    sorted_items[i - 1], sorted_items[i] = sorted_items[i], sorted_items[i - 1]
                     swapped = True
             size -= 1
-        return items
+        return sorted_items
