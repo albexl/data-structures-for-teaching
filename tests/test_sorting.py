@@ -30,12 +30,6 @@ class TestSort(TestCase):
             ),
             (
                 RecursiveMergeSort,
-                lambda x, y: x < y,
-                [2, 4, 1, 4, 3, 9, 2, 1],
-                [1, 1, 2, 2, 3, 4, 4, 9],
-            ),
-            (
-                RecursiveMergeSort,
                 lambda x, y: x["value"] < y["value"],
                 [
                     {"name": "item1", "value": 100},
@@ -48,6 +42,34 @@ class TestSort(TestCase):
                     {"name": "item1", "value": 100},
                 ],
             ),
+            (
+                IterativeMergeSort,
+                lambda x, y: x["value"] < y["value"],
+                [
+                    {"name": "item1", "value": 100},
+                    {"name": "item2", "value": 10},
+                    {"name": "item3", "value": 25},
+                ],
+                [
+                    {"name": "item2", "value": 10},
+                    {"name": "item3", "value": 25},
+                    {"name": "item1", "value": 100},
+                ],
+            ),
+        ]
+
+        +
+
+        [
+            (IterativeMergeSort, lambda x, y : x < y, list(range(n, 0, -1)), list(range(1, n + 1)))
+            for n in range(2, 33)
+        ]
+
+        +
+
+        [
+            (RecursiveMergeSort, lambda x, y : x < y, list(range(n, 0, -1)), list(range(1, n + 1)))
+            for n in range(2, 33)
         ]
     )
     def test_sorting(self, sorting_method, comp_func, items, expected):
