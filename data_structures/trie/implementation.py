@@ -1,7 +1,10 @@
 """Module with Trie implementations."""
 
 
+from typing import List
+
 import pydot
+from typing_extensions import Self
 
 from data_structures.stack.implementation import ArrayBasedStack
 
@@ -9,14 +12,14 @@ from data_structures.stack.implementation import ArrayBasedStack
 class TrieNode:
     """Class that represents a node in the Trie."""
 
-    def __init__(self, alphabet, symbol):
+    def __init__(self, alphabet: List[str], symbol: str) -> None:
         self.alphabet = alphabet
         self.symbol = symbol
         self.final = False
         self.edges = {}
         self.cnt = 0
 
-    def add_edge(self, symbol: str):
+    def add_edge(self, symbol: str) -> Self:
         """Adds an edge between the node and a new node
         with the symbol supplied.
 
@@ -29,7 +32,7 @@ class TrieNode:
         self.edges[symbol] = TrieNode(self.alphabet, symbol)
         return self.edges[symbol]
 
-    def get_node(self, symbol: str):
+    def get_node(self, symbol: str) -> Self:
         """Returns the adjacent node with the symbol supplied.
 
         Args:
@@ -44,15 +47,17 @@ class TrieNode:
 class Trie:
     """Class that represents a Trie."""
 
-    def __init__(self, alphabet):
+    def __init__(self, alphabet: List[str]) -> None:
         self.alphabet = alphabet
         self.root = TrieNode(alphabet, "^")
 
-    def insert(self, word: str):
-        """Inserts a word in the Trie.
+    def insert(self, word: str, times: int = 1) -> None:
+        """Inserts a word in the Trie as many times as
+        the `times` argument.
 
         Args:
             word (str): The word to be inserted.
+            times (int, optional): How many occurrences to insert. Defaults to 1.
         """
         cur_node = self.root
         for symbol in word:
@@ -60,15 +65,15 @@ class Trie:
             if next_node is None:
                 next_node = cur_node.add_edge(symbol)
             cur_node = next_node
-        cur_node.cnt += 1
+        cur_node.cnt += times
         cur_node.final = True
 
-    def remove(self, word: str, times: int):
+    def remove(self, word: str, times: int = 1) -> None:
         """Removes a number of occurrences of a word.
 
         Args:
             word (str): The word to remove.
-            times (int): How many occurrences to remove.
+            times (int, optional): How many occurrences to remove. Defaults to 1.
         """
         trace = ArrayBasedStack()
         cur_node = self.root
@@ -86,7 +91,7 @@ class Trie:
                 if len(cur_node.edges) == 0:
                     self._clean_links(trace)
 
-    def _clean_links(self, trace: ArrayBasedStack):
+    def _clean_links(self, trace: ArrayBasedStack) -> None:
         """Removes the edges that exclusively lead to a word that was removed.
 
         Args:
@@ -98,7 +103,7 @@ class Trie:
             if len(parent_node.edges) != 0:
                 break
 
-    def remove_all(self, word: str):
+    def remove_all(self, word: str) -> None:
         """Removes all occurrences of a word.
 
         Args:

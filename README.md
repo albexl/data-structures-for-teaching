@@ -18,10 +18,24 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 
 ### Sorting Algorithms:
 
-- [x] [Bubble-Sort](./algorithms/sorting/bubblesort.py)
-- [x] [Heap-Sort](./algorithms/sorting/heapsort.py)
-- [x] [Merge-Sort](./algorithms/sorting/mergesort.py)
-- [ ] Quick-Sort.
+- [x] [Bubble Sort](./algorithms/sorting/bubblesort.py)
+- [x] [Heap Sort](./algorithms/sorting/heapsort.py)
+- [x] [Merge Sort](./algorithms/sorting/mergesort.py)
+- [ ] Quick Sort
+- [ ] Insertion Sort
+- [ ] Selection Sort
+- [ ] Radix Sort
+- [ ] Counting Sort
+- [ ] Shell Sort
+- [ ] Bogo Sort
+- [ ] Tim Sort
+- [ ] Gnome Sort
+
+### Search Algorithms:
+
+- [ ] Linear Search
+- [ ] Binary Search
+- [ ] Ternary Search
 
 ### Graph Algorithms:
 

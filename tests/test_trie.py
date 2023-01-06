@@ -44,8 +44,7 @@ class TestTrie(TestCase):
 
     def test_count_insertions(self):
         """Checks inserted words are counted the correct number of times."""
-        self.trie.insert("abc")
-        self.trie.insert("abc")
+        self.trie.insert("abc", 2)
         self.trie.insert("a")
         self.assertEqual(self.trie.count_insertions("abc"), 2)
         self.assertEqual(self.trie.count_insertions("a"), 1)
@@ -53,18 +52,15 @@ class TestTrie(TestCase):
 
     def test_remove(self):
         """Checks the count is correct after removing."""
-        self.trie.insert("abc")
-        self.trie.insert("abc")
-        self.trie.insert("abc")
+        self.trie.insert("abc", 3)
         self.trie.remove("abc", 2)
         self.assertEqual(self.trie.count_insertions("abc"), 1)
-        self.trie.remove("abc", 1)
+        self.trie.remove("abc")
         self.assertEqual(self.trie.count_insertions("abc"), 0)
 
     def test_remove_all(self):
         """Checks the count is 0 after removing all occurrences."""
-        self.trie.insert("abc")
-        self.trie.insert("abc")
+        self.trie.insert("abc", 2)
         self.trie.remove_all("abc")
         self.assertEqual(self.trie.count_insertions("abc"), 0)
 
