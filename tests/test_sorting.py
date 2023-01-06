@@ -7,8 +7,7 @@ from parameterized import parameterized
 
 from algorithms.sorting.bubblesort import BubbleSort
 from algorithms.sorting.heapsort import HeapSort
-from algorithms.sorting.mergesort import IterativeMergeSort
-from algorithms.sorting.mergesort import RecursiveMergeSort
+from algorithms.sorting.mergesort import IterativeMergeSort, RecursiveMergeSort
 
 
 class TestSort(TestCase):
@@ -57,18 +56,22 @@ class TestSort(TestCase):
                 ],
             ),
         ]
-
-        +
-
-        [
-            (IterativeMergeSort, lambda x, y : x < y, list(range(n, 0, -1)), list(range(1, n + 1)))
+        + [
+            (
+                IterativeMergeSort,
+                lambda x, y: x < y,
+                list(range(n, 0, -1)),
+                list(range(1, n + 1)),
+            )
             for n in range(2, 33)
         ]
-
-        +
-
-        [
-            (RecursiveMergeSort, lambda x, y : x < y, list(range(n, 0, -1)), list(range(1, n + 1)))
+        + [
+            (
+                RecursiveMergeSort,
+                lambda x, y: x < y,
+                list(range(n, 0, -1)),
+                list(range(1, n + 1)),
+            )
             for n in range(2, 33)
         ]
     )

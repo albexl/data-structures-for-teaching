@@ -15,7 +15,10 @@ class BubbleSort(Sort):
             swapped = False
             for i in range(1, size):
                 if not self._comp_func(sorted_items[i - 1], sorted_items[i]):
-                    sorted_items[i - 1], sorted_items[i] = sorted_items[i], sorted_items[i - 1]
+                    sorted_items[i - 1], sorted_items[i] = (
+                        sorted_items[i],
+                        sorted_items[i - 1],
+                    )
                     swapped = True
             size -= 1
         return sorted_items
