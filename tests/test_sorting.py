@@ -81,6 +81,8 @@ class TestSort(TestCase):
             items (List): The items to sort.
             expected (List): The expected order of the items after sorting.
         """
+        original_items = items.copy()
         sorter = sorting_method(comp_func, items)
         sorted_items = sorter.sort()
         self.assertEqual(sorted_items, expected)
+        self.assertEqual(original_items, items)
