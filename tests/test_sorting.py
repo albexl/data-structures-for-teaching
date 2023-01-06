@@ -77,7 +77,7 @@ class TestSort(TestCase):
 
         Args:
             sorting_method (Sort): The sorting method to test.
-            comp_func (func): The comparisson function used by the sorting method.
+            comp_func (func): The comparison function used by the sorting method.
             items (List): The items to sort.
             expected (List): The expected order of the items after sorting.
         """
