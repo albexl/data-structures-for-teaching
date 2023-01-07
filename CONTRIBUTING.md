@@ -24,11 +24,11 @@ These are guidelines for the steps to take to contribute to our project. We reco
 
 ### Read Issues and Pull Requests
 
-We strongly recommend you to read the Issues in the repo as well as the pending Pull Requests so you can focus your energies on something new and don't waste your time. You can also try to reach out to someone who is already working on some task and try to collaborate.
+We strongly recommend you read the Issues in the repo as well as the pending Pull Requests so you can focus your energies on something new and don't waste your time. You can also try to reach out to someone who is already working on some task and try to collaborate.
 
 ### Create a new Issue
 
-If nobody is working on the task you want to work, then create a new issue explaining the changes you want to make and the reason why you would like to make these changes. We even have some templates you can use to help you write your issues more easily.
+If nobody is working on the task you want to work on, then create a new issue explaining the changes you want to make and the reason why you would like to make these changes. We even have some templates you can use to help you write your issues more easily.
 
 ### Fork this repo
 
@@ -38,7 +38,7 @@ Fork the repo, because you are going to make your changes on your forked version
 
 To make changes to this repo, submit a Pull Request to the `dev` branch. Once it is reviewed, it will either be merged or some changes will be requested.
 
-As of now, we have a basic CI setup that can be checked here: [check.yaml](./.github/workflows/check.yaml). This setup can help you know if there are some tests failing for your changes and that you need to make some changes before submitting the Pull Request.
+As of now, we have a basic CI setup that can be checked here: [check.yaml](./.github/workflows/check.yaml). This setup can help you know if some tests are failing for your changes and that you need to make some changes before submitting the Pull Request.
 
 #### Notes on commits:
 
