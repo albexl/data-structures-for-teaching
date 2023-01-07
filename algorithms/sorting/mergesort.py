@@ -1,12 +1,14 @@
 """Module with the implementation of the MergeSort algorithm."""
 
+from typing import List
+
 from .sort import Sort
 
 
 class BaseMergeSort(Sort):
     """Base Merge Sort class."""
 
-    def _merge(self, left, right):
+    def _merge(self, left: List, right: List) -> List:
         merged = []
         left_idx = 0
         right_idx = 0
@@ -33,7 +35,7 @@ class BaseMergeSort(Sort):
 class RecursiveMergeSort(BaseMergeSort):
     """Class that represents a recursive MergeSort implementation."""
 
-    def _sort(self, items):
+    def _sort(self, items: List) -> List:
         if len(items) <= 1:
             return items
 
@@ -50,7 +52,7 @@ class RecursiveMergeSort(BaseMergeSort):
 class IterativeMergeSort(BaseMergeSort):
     """Class that represents an iterative MergeSort implementation."""
 
-    def _sort(self, items):
+    def _sort(self, items: List) -> List:
 
         sorted_items = items.copy()
         chunk_size = 1

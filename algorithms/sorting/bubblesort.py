@@ -1,13 +1,15 @@
 """Module with the implementation of the BubbleSort algorithm."""
 
 
+from typing import List
+
 from .sort import Sort
 
 
 class BubbleSort(Sort):
     """Class that represents a BubbleSort implementation."""
 
-    def _sort(self, items):
+    def _sort(self, items: List) -> List:
         size = len(items)
         swapped = True
         sorted_items = items.copy()
