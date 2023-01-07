@@ -51,8 +51,6 @@ class IterativeMergeSort(BaseMergeSort):
     """Class that represents an iterative MergeSort implementation."""
 
     def _sort(self, items):
-        if len(items) <= 1:
-            return items
 
         sorted_items = items.copy()
         chunk_size = 1
