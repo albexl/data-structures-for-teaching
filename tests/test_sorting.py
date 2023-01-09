@@ -6,6 +6,7 @@ from unittest import TestCase
 from parameterized import parameterized
 
 from algorithms.sorting.bubblesort import BubbleSort
+from algorithms.sorting.selectionsort import SelectionSort
 from algorithms.sorting.heapsort import HeapSort
 from algorithms.sorting.mergesort import IterativeMergeSort, RecursiveMergeSort
 
@@ -17,6 +18,12 @@ class TestSort(TestCase):
         [
             (
                 BubbleSort,
+                lambda x, y: x < y,
+                [2, 4, 1, 4, 3, 9, 2, 1],
+                [1, 1, 2, 2, 3, 4, 4, 9],
+            ),
+            (
+                SelectionSort,
                 lambda x, y: x < y,
                 [2, 4, 1, 4, 3, 9, 2, 1],
                 [1, 1, 2, 2, 3, 4, 4, 9],
