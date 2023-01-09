@@ -9,6 +9,7 @@ from algorithms.sorting.bubblesort import BubbleSort
 from algorithms.sorting.heapsort import HeapSort
 from algorithms.sorting.mergesort import IterativeMergeSort, RecursiveMergeSort
 from algorithms.sorting.selectionsort import SelectionSort
+from algorithms.sorting.quicksort import QuickSort
 
 
 class TestSort(TestCase):
@@ -50,6 +51,20 @@ class TestSort(TestCase):
             ),
             (
                 IterativeMergeSort,
+                lambda x, y: x["value"] < y["value"],
+                [
+                    {"name": "item1", "value": 100},
+                    {"name": "item2", "value": 10},
+                    {"name": "item3", "value": 25},
+                ],
+                [
+                    {"name": "item2", "value": 10},
+                    {"name": "item3", "value": 25},
+                    {"name": "item1", "value": 100},
+                ],
+            ),
+            (
+                QuickSort,
                 lambda x, y: x["value"] < y["value"],
                 [
                     {"name": "item1", "value": 100},
