@@ -6,9 +6,9 @@ from unittest import TestCase
 from parameterized import parameterized
 
 from algorithms.sorting.bubblesort import BubbleSort
-from algorithms.sorting.selectionsort import SelectionSort
 from algorithms.sorting.heapsort import HeapSort
 from algorithms.sorting.mergesort import IterativeMergeSort, RecursiveMergeSort
+from algorithms.sorting.selectionsort import SelectionSort
 
 
 class TestSort(TestCase):
