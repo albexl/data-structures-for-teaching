@@ -23,7 +23,7 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 - [x] [Merge Sort](./algorithms/sorting/mergesort.py)
 - [ ] Quick Sort
 - [ ] Insertion Sort
-- [ ] Selection Sort
+- [x] [Selection Sort](./algorithms/sorting/selectionsort.py)
 - [ ] Radix Sort
 - [ ] Counting Sort
 - [ ] Shell Sort
