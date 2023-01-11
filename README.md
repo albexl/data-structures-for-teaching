@@ -37,6 +37,28 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 - [ ] Binary Search
 - [ ] Ternary Search
 
+### String Algorithms
+
+- [ ] Knuth-Morris-Pratt
+- [ ] Manacher
+- [ ] Z-Function
+
+### Number Theory Algorithms
+
+- [ ] Greatest Common Divisor
+- [ ] Extended Greatest Common Divisor
+- [ ] Euler's Phi Function
+- [ ] Eratosthenes Sieve
+- [ ] Miller-Rabin
+- [ ] Modular Arithmetics
+
+### Algebra/Numerical Algorithms
+
+- [ ] Gauss
+- [ ] Simplex
+- [ ] Simpson
+- [ ] Fast Fourier Transform
+
 ### Graph Algorithms:
 
 - [ ] Breadth-First Search
