@@ -1,7 +1,7 @@
 """Module with the implementation of the QuickSort algorithm."""
 
 
-from typing import List
+from typing import List, Callable
 from random import randint
 
 from .sort import Sort
@@ -9,6 +9,14 @@ from .sort import Sort
 
 class QuickSort(Sort):
     """Class that represents a QuickSort implementation."""
+
+    def __init__( self, func: Callable, items: List, pivot_strategy: Callable = None ) -> None:
+        super().__init__(func, items)
+        
+        if pivot_strategy == None:
+            pivot_strategy = lambda l, r: randint(l, r)
+        self.pivot_strategy = pivot_strategy 
+
 
     def _sort(self, items: List) -> List:
         size = len(items)
@@ -28,7 +36,7 @@ class QuickSort(Sort):
 
     def __partition(self, items: List, p: int, r: int) -> int:
 
-        piv = items[randint(p, r)]
+        piv = items[self.pivot_strategy(p, r)]
         i = p
         j = r
 
