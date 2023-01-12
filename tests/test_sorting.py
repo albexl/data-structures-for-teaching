@@ -72,6 +72,12 @@ class TestSort(TestCase):
             ),
             (
                 QuickSort,
+                lambda x, y: x > y,
+                [2, 4, 1, 4, 3, 9, 2, 1],
+                [9, 4, 4, 3, 2, 2, 1, 1],
+            ),
+            (
+                QuickSort,
                 lambda x, y: x["value"] < y["value"],
                 [
                     {"name": "item1", "value": 100},
@@ -83,6 +89,7 @@ class TestSort(TestCase):
                     {"name": "item3", "value": 25},
                     {"name": "item1", "value": 100},
                 ],
+                lambda a, b: int((a + b) / 2)
             ),
         ]
         + [
@@ -104,7 +111,7 @@ class TestSort(TestCase):
             for n in range(2, 33)
         ]
     )
-    def test_sorting(self, sorting_method, comp_func, items, expected):
+    def test_sorting(self, sorting_method, comp_func, items, expected, pivot_strategy = None):
         """Checks the sorting method works correctly.
 
         Args:
@@ -112,9 +119,16 @@ class TestSort(TestCase):
             comp_func (func): The comparison function used by the sorting method.
             items (List): The items to sort.
             expected (List): The expected order of the items after sorting.
+            pivot_strategy(funt): Strategy pivot of QuickSort algorithm.
         """
         original_items = items.copy()
-        sorter = sorting_method(comp_func, items)
+
+        sorter = None
+        if pivot_strategy == None:
+            sorter = sorting_method(comp_func, items)
+        else:
+            sorter = sorting_method(comp_func, items, pivot_strategy)
+
         sorted_items = sorter.sort()
         self.assertEqual(sorted_items, expected)
         self.assertEqual(original_items, items)
