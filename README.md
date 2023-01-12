@@ -13,6 +13,8 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 - [x] [Union-Find](./data_structures/union_find/implementation.py)
 - [x] [Graphs](./data_structures/graphs/implementation.py)
 - [ ] Linked List
+- [ ] Disjoint Set
+- [ ] Segment Tree
 
 ## Algorithms:
 
