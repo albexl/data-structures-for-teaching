@@ -1,12 +1,14 @@
+"""Implementation of the Base classes for string algorithms."""
+
+from abc import ABC, abstractmethod
+from typing import List
 
 
-class StringAlgorithm:
-    '''
-    Base class for string algorithms.
-    '''
+class StringSearch(ABC):
+    """Base class for string search algorithms."""
 
     def __init__(self, text: str, pattern: str) -> None:
-        '''
+        """
         Class constructor.
 
         Parameters
@@ -15,17 +17,15 @@ class StringAlgorithm:
             String on which the search is performed.
         pattern : str
             Pattern to search in the text.
-        '''
+        """
         self.text = text
         self.pattern = pattern
 
-    def find_occurrences(self) -> list:
-        '''
-        Find the occurrences of the pattern with respect to 
-        the text. Assumes indexing at 1.
+    @abstractmethod
+    def find_occurrences(self) -> List:
+        """Find the occurrences of the pattern in the text.
+        Assumes indexing starting at 1.
 
-        Return
-        ------
-            List with ocurrences.
-        '''
-        pass
+        Returns:
+            List: List with the ocurrences of the pattern in the text.
+        """
