@@ -39,7 +39,7 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 
 ### String Algorithms
 
-- [ ] Knuth-Morris-Pratt
+- [x] [Knuth-Morris-Pratt](./algorithms/strings/kmp.py)
 - [ ] Manacher
 - [ ] Z-Function
 
