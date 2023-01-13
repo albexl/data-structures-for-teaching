@@ -1,6 +1,10 @@
 """Module to test the KMP implementations."""
 
+from typing import List
 from unittest import TestCase
+
+from parameterized import parameterized
+
 from algorithms.searching.kmp import KMP
 
 
@@ -8,22 +12,19 @@ class TestKMP(TestCase):
     """Class to test the KMP implementation."""
 
     def setUp(self):
-        self.text = 'abcdeaaabbbecdabdecbecccadccdbdedddabc'
-        self.kmp1 = KMP(self.text, 'a')
-        self.kmp2 = KMP(self.text, 'abc')
-        self.kmp3 = KMP(self.text, 'cc')
-        self.kmp4 = KMP(self.text, 'bde')
-        self.kmp5 = KMP(self.text, 'bbb')
+        self.text = "abcdeaaabbbecdabdecbecccadccdbdedddabc"
 
-    def test_find_occurrences(self):
+    @parameterized.expand(
+        [
+            ("a", [1, 6, 7, 8, 15, 25, 36]),
+            ("abc", [1, 36]),
+            ("cc", [22, 23, 27]),
+            ("bde", [16, 30]),
+            ("bbb", [9]),
+            ("xyz", []),
+        ]
+    )
+    def test_find_occurrences(self, pattern: str, expected: List[int]):
         """Checks find occurrences are found. Assumes indexing at 1."""
-        self.assertEqual(self.kmp1.find_occurrences(),
-                         [1, 6, 7, 8, 15, 25, 36])
-        self.assertEqual(self.kmp2.find_occurrences(),
-                         [1, 36])
-        self.assertEqual(self.kmp3.find_occurrences(),
-                         [22, 23, 27])
-        self.assertEqual(self.kmp4.find_occurrences(),
-                         [16, 30])
-        self.assertEqual(self.kmp5.find_occurrences(),
-                         [9])
+        kmp = KMP(self.text, pattern)
+        self.assertEqual(kmp.find_occurrences(), expected)
