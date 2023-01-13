@@ -25,6 +25,6 @@ class TestKMP(TestCase):
         ]
     )
     def test_find_occurrences(self, pattern: str, expected: List[int]):
-        """Checks find occurrences are found. Assumes indexing at 1."""
+        """Checks occurrences are found correctly. Assumes indexing at 1."""
         kmp = KMP(self.text, pattern)
         self.assertEqual(kmp.find_occurrences(), expected)
