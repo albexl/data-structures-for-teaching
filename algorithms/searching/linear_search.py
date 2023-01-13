@@ -1,10 +1,10 @@
-"""Module with the implementation of the Lineal Search algorithm."""
+"""Module with the implementation of the Linear Search algorithm."""
 
 from .search import Search
 
 
-class LinealSearch(Search):
-    """Class that represents a Lineal Search implementation."""
+class LinearSearch(Search):
+    """Class that represents a Linear Search implementation."""
 
     def search(self, item) -> int:
         for i in range(0, len(self._items)):

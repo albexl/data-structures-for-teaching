@@ -1,4 +1,4 @@
-"""Module to test the Sorting algorithms."""
+"""Module to test the Searching algorithms."""
 
 
 from unittest import TestCase
@@ -6,17 +6,16 @@ from unittest import TestCase
 from parameterized import parameterized
 
 from algorithms.searching.search import Search
-from algorithms.searching.lineal_search import LinealSearch
-from algorithms.searching.binary_search import BinarySearch
+from algorithms.searching.linear_search import LinearSearch
 
 
 class TestSearch(TestCase):
-    """Base class to test Sorting implementations."""
+    """Base class to test Searching implementations."""
 
     @parameterized.expand(
         [
             (
-                LinealSearch,
+                LinearSearch,
                 lambda x, y: x - y,
                 [2, 4, 1, 4, 3, 9, 2, 1],
                 4,
@@ -26,8 +25,8 @@ class TestSearch(TestCase):
     )
 
 
-    def test_sorting(self, search_method: Search, comp_func, items, item_find, expected):
-        """Test the sorting algorithms.
+    def test_searching(self, search_method: Search, comp_func, items, item_find, expected):
+        """Test the Searching algorithms.
 
             Args:
                 search_method (Search): Search method to test.
