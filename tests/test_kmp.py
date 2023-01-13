@@ -5,7 +5,7 @@ from unittest import TestCase
 
 from parameterized import parameterized
 
-from algorithms.searching.kmp import KMP
+from algorithms.strings.kmp import KMP
 
 
 class TestKMP(TestCase):
