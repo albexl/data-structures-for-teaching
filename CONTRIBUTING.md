@@ -99,6 +99,16 @@ The order of the imported libraries is important in Python. Among other things, 
 isort .
 ```
 
+## Linting
+
+Since we are trying to make the codebase as standard as possible, it is a good idea to run the `pylint` linter on the directory of your changes and try to comply with all the suggestions it shows. We can ignore some of them, but trying to fix as many as possible will end up in a codebase that looks like the code of a team, instead of the code of individuals scattered across the repo. To use `pylint` just execute the following command on your terminal:
+
+```shell
+pylint {working_directory}
+```
+
+Replace `{working_directory}` with the directory that you want to run `pylint` on.
+
 ## Code of Conduct
 
 We are trying to create a healthy community that thrives on the desire to learn and share knowledge. See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) to check our behavioral rules on this project.
