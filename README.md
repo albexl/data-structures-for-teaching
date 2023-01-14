@@ -33,8 +33,8 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 
 ### Search Algorithms:
 
-- [x] Linear Search
-- [x] Binary Search
+- [x] [Linear Search](./algorithms/searching/linear_search.py)
+- [x] [Binary Search](./algorithms/searching/binary_search.py)
 - [ ] Ternary Search
 
 ### String Algorithms
