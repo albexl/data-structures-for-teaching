@@ -9,6 +9,6 @@ class LinearSearch(Search):
     def search(self, item) -> int:
         for i in range(0, len(self._items)):
             _item = self._items[i]
-            if self._comp_func(_item, item) == 0:
+            if self._comp_func(_item, item):
                 return i
         return -1

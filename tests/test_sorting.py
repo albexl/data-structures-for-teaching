@@ -9,8 +9,8 @@ from algorithms.sorting.bubblesort import BubbleSort
 from algorithms.sorting.heapsort import HeapSort
 from algorithms.sorting.insertionsort import InsertionSort
 from algorithms.sorting.mergesort import IterativeMergeSort, RecursiveMergeSort
-from algorithms.sorting.selectionsort import SelectionSort
 from algorithms.sorting.quicksort import QuickSort
+from algorithms.sorting.selectionsort import SelectionSort
 
 
 class TestSort(TestCase):
@@ -89,7 +89,7 @@ class TestSort(TestCase):
                     {"name": "item3", "value": 25},
                     {"name": "item1", "value": 100},
                 ],
-                lambda a, b: int((a + b) / 2)
+                lambda a, b: int((a + b) / 2),
             ),
         ]
         + [
@@ -111,7 +111,9 @@ class TestSort(TestCase):
             for n in range(2, 33)
         ]
     )
-    def test_sorting(self, sorting_method, comp_func, items, expected, pivot_strategy = None):
+    def test_sorting(
+        self, sorting_method, comp_func, items, expected, pivot_strategy=None
+    ):
         """Checks the sorting method works correctly.
 
         Args:
@@ -119,12 +121,12 @@ class TestSort(TestCase):
             comp_func (func): The comparison function used by the sorting method.
             items (List): The items to sort.
             expected (List): The expected order of the items after sorting.
-            pivot_strategy(funt): Strategy pivot of QuickSort algorithm.
+            pivot_strategy(func): Strategy pivot of QuickSort algorithm.
         """
         original_items = items.copy()
 
         sorter = None
-        if pivot_strategy == None:
+        if pivot_strategy is None:
             sorter = sorting_method(comp_func, items)
         else:
             sorter = sorting_method(comp_func, items, pivot_strategy)
