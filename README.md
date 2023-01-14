@@ -34,7 +34,7 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 ### Search Algorithms:
 
 - [x] Linear Search
-- [ ] Binary Search
+- [x] Binary Search
 - [ ] Ternary Search
 
 ### String Algorithms
