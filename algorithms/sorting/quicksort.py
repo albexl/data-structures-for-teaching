@@ -10,13 +10,14 @@ from .sort import Sort
 class QuickSort(Sort):
     """Class that represents a QuickSort implementation."""
 
-    def __init__( self, func: Callable, items: List, pivot_strategy: Callable = None ) -> None:
+    def __init__(
+        self, func: Callable, items: List, pivot_strategy: Callable = None
+    ) -> None:
         super().__init__(func, items)
-        
+
         if pivot_strategy == None:
             pivot_strategy = lambda l, r: randint(l, r)
-        self.pivot_strategy = pivot_strategy 
-
+        self.pivot_strategy = pivot_strategy
 
     def _sort(self, items: List) -> List:
         size = len(items)

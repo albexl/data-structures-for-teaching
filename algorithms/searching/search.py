@@ -24,4 +24,3 @@ class Search(ABC):
         Returns:
             int: The index of the item.
         """
-

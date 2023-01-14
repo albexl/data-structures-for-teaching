@@ -16,7 +16,7 @@ class BinarySearch(Search):
 
             if self._comp_func(mid_item, item) == 0:
                 return mid
-            
+
             if l == r:
                 return -1
 
