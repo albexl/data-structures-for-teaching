@@ -5,9 +5,9 @@ from unittest import TestCase
 
 from parameterized import parameterized
 
-from algorithms.searching.search import Search
 from algorithms.searching.linear_search import LinearSearch
 from algorithms.searching.binary_search import BinarySearch
+from algorithms.searching.search import Search
 
 
 class TestSearch(TestCase):
@@ -16,6 +16,18 @@ class TestSearch(TestCase):
     @parameterized.expand(
         [
             (LinearSearch, lambda x, y: x - y, [2, 4, 1, 4, 3, 9, 2, 1], 4, 1),
+            (LinearSearch, lambda x, y: x == y, [2, 4, 1, 4, 3, 9, 2, 1], 4, 1),
+            (
+                LinearSearch,
+                lambda x, y: x["value"] == y["value"] and x["name"] == y["name"],
+                [
+                    {"name": "item1", "value": 100},
+                    {"name": "item2", "value": 10},
+                    {"name": "item3", "value": 25},
+                ],
+                {"name": "item2", "value": 10},
+                1,
+            ),
             (BinarySearch, lambda x, y: x - y, [1, 1, 2, 2, 3, 4, 4, 9], 4, 5),
             (BinarySearch, lambda x, y: x - y, [1, 1, 2, 2, 3, 4, 4, 9], 0, -1),
         ]

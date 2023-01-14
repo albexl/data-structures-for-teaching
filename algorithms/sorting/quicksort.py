@@ -1,8 +1,8 @@
 """Module with the implementation of the QuickSort algorithm."""
 
 
-from typing import List, Callable
 from random import randint
+from typing import Callable, List
 
 from .sort import Sort
 
@@ -11,12 +11,12 @@ class QuickSort(Sort):
     """Class that represents a QuickSort implementation."""
 
     def __init__(
-        self, func: Callable, items: List, pivot_strategy: Callable = None
+        self,
+        func: Callable,
+        items: List,
+        pivot_strategy: Callable = lambda l, r: randint(l, r),
     ) -> None:
         super().__init__(func, items)
-
-        if pivot_strategy == None:
-            pivot_strategy = lambda l, r: randint(l, r)
         self.pivot_strategy = pivot_strategy
 
     def _sort(self, items: List) -> List:
@@ -26,20 +26,20 @@ class QuickSort(Sort):
         self.__sort(sorted_items, 0, size - 1)
         return sorted_items
 
-    def __sort(self, items: List, p: int, r: int) -> None:
-        if r <= p:
+    def __sort(self, items: List, left: int, right: int) -> None:
+        if right <= left:
             return
 
-        q = self.__partition(items, p, r)
+        mid = self.__partition(items, left, right)
 
-        self.__sort(items, p, q)
-        self.__sort(items, q + 1, r)
+        self.__sort(items, left, mid)
+        self.__sort(items, mid + 1, right)
 
-    def __partition(self, items: List, p: int, r: int) -> int:
+    def __partition(self, items: List, left: int, right: int) -> int:
 
-        piv = items[self.pivot_strategy(p, r)]
-        i = p
-        j = r
+        piv = items[self.pivot_strategy(left, right)]
+        i = left
+        j = right
 
         while True:
             while self._comp_func(items[i], piv):
