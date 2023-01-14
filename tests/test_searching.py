@@ -7,7 +7,7 @@ from parameterized import parameterized
 
 from algorithms.searching.search import Search
 from algorithms.searching.linear_search import LinearSearch
-
+from algorithms.searching.binary_search import BinarySearch
 
 class TestSearch(TestCase):
     """Base class to test Searching implementations."""
@@ -21,6 +21,20 @@ class TestSearch(TestCase):
                 4,
                 1
             ),
+            (
+                BinarySearch,
+                lambda x, y: x - y,
+                [1, 1, 2, 2, 3, 4, 4, 9],
+                4,
+                5
+            ),
+            (
+                BinarySearch,
+                lambda x, y: x - y,
+                [1, 1, 2, 2, 3, 4, 4, 9],
+                0,
+                -1
+            )
         ]
     )
 
