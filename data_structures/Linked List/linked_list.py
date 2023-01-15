@@ -67,10 +67,11 @@ class LinkedList():
         cursor = self._first
         if cursor:
             while cursor:
+                previous = cursor
                 cursor = cursor._next
-            cursor._next = node
+            previous._next = node
         else:
-            cursor = node
+            self._first = node
         self._count += 1
 
     def insert(self, item, index: int) -> None:
@@ -96,7 +97,7 @@ class LinkedList():
             previous._next = node
             node._next = cursor
         else:
-            self._first = node
+            cursor = node
         self._count += 1
         
     def get(self, index: int):
@@ -111,11 +112,13 @@ class LinkedList():
         if index <= 0 or index > self._count:
             raise ValueError
         cursor = self._first
-        current = 1
-        while index != current:
-            current += 1
-            cursor = cursor._next
-        return cursor._data
+        if cursor:
+            current = 1
+            while cursor and index != current:
+                current += 1
+                cursor = cursor._next
+            return cursor._data
+        return None
 
     def clear(self) -> None:
         """
@@ -152,12 +155,14 @@ class LinkedList():
         if index <= 0 or index > self._count:
             raise ValueError
         cursor = self._first
-        current = 1
-        while index != current:
-            current += 1
-            previous = cursor
-            cursor = cursor._next
-        previous = cursor._next
+        if cursor:
+            current = 1
+            while index != current:
+                current += 1
+                previous = cursor
+                cursor = cursor._next
+            previous._next = cursor._next
+            self._count -= 1
         return cursor._data
 
     def is_empty(self) -> bool:
@@ -180,3 +185,45 @@ class LinkedList():
 
         """
         return self._count
+
+
+
+if __name__ == "__main__":
+    linked_list = LinkedList()
+
+    linked_list.add(1)
+    linked_list.add(2)
+    linked_list.add(3)
+    linked_list.add("Carlos")
+    linked_list.add(4)
+
+    print("Before insert")
+    print(f'Total items: {linked_list.length()}')
+    for i in range(1, linked_list.length()+1):
+        print(linked_list.get(i))
+
+    linked_list.insert(5, 2)
+
+    print("After insert")
+    print(f'Total items: {linked_list.length()}')
+    for i in range(1, linked_list.length()+1):
+        print(linked_list.get(i))
+
+    print(f'Contain 2: {linked_list.contains(2)}')
+    print(f'Contain 6: {linked_list.contains(6)}')
+    print(f'Contain "Carlos": {linked_list.contains("Carlos")}')
+    print(f'Is Empty: {linked_list.is_empty()}')
+
+    print(f'Removing item 3: {linked_list.remove(3)}')
+    
+    print("After remove")
+    print(f'Total items: {linked_list.length()}')
+    for i in range(1, linked_list.length()+1):
+        print(linked_list.get(i))
+
+    linked_list.clear()
+
+    print("After clear")
+    print(f'Total items: {linked_list.length()}')
+    for i in range(1, linked_list.length()+1):
+        print(linked_list.get(i))
