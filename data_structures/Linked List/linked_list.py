@@ -144,6 +144,17 @@ class LinkedList():
             cursor = cursor._next
         return False
 
+    def copy_to(self, list: list(), index: int) -> None:
+        if index <= 0 and index > self._count:
+            raise ValueError
+        cursor = self._first
+        current = 1
+        while cursor:
+            if current >= index:
+                list.append(cursor._data)
+            cursor = cursor._next
+            current += 1
+        
     def remove(self, index: int):
         """
         Removes and return the element located at the given position.
@@ -209,6 +220,12 @@ if __name__ == "__main__":
     for i in range(1, linked_list.length()+1):
         print(linked_list.get(i))
 
+    aux = []
+    linked_list.copy_to(aux, 2)
+    print("Copy to...")
+    for i in range(0, len(aux)):
+        print(aux[i])
+    
     print(f'Contain 2: {linked_list.contains(2)}')
     print(f'Contain 6: {linked_list.contains(6)}')
     print(f'Contain "Carlos": {linked_list.contains("Carlos")}')
