@@ -40,7 +40,7 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 ### String Algorithms
 
 - [x] [Knuth-Morris-Pratt](./algorithms/strings/kmp.py)
-- [ ] Naive
+- [x] Naive
 - [ ] Manacher
 - [ ] Z-Function
 
