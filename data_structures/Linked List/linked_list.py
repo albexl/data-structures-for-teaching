@@ -45,7 +45,7 @@ class LinkedList():
     - get(index: int) -> _type_
     - clear() -> None
     - contains(item: _type_) -> bool
-    - copy_to(collection: list(), index: int) -> None
+    - copy_to(list: list(), index: int) -> None
     - remove(item: _type_) -> None
     - is_empty() -> bool
     - length() -> int
@@ -145,6 +145,16 @@ class LinkedList():
         return False
 
     def copy_to(self, list: list(), index: int) -> None:
+        """
+        Updates the list passed as a parameter with the elements of the linked list found starting at position index
+
+        Args:
+            list (list): List to be updated
+            index (int): Starting position
+
+        Raises:
+            ValueError: Starting position is no valid
+        """
         if index <= 0 and index > self._count:
             raise ValueError
         cursor = self._first
