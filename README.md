@@ -51,7 +51,7 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 - [ ] Euler's Phi Function
 - [ ] Eratosthenes Sieve
 - [ ] Miller-Rabin
-- [ ] Modular Arithmetics
+- [x] [Modular Arithmetics](./algorithms/number_theory/modular_arithmetics.py)
 
 ### Algebra/Numerical Algorithms
 
