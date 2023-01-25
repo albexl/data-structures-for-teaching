@@ -12,7 +12,7 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 - [x] [Heap](./data_structures/heap/implementation.py)
 - [x] [Union-Find](./data_structures/union_find/implementation.py)
 - [x] [Graphs](./data_structures/graphs/implementation.py)
-- [ ] Linked List
+- [x] [Linked List](./data_structures/linked_list/implementation.py)
 
 ## Algorithms:
 
