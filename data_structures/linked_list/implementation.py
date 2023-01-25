@@ -160,7 +160,7 @@ class LinkedList():
         Raises:
             ValueError: Index out of range
         """
-        if index <= 0 and index > self._count:
+        if index <= 0 or index > self._count:
             raise ValueError("Index out of range")
         cursor = self._first
         current = 1
