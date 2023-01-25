@@ -26,8 +26,8 @@ if __name__ == "__main__":
     aux = []
     linked_list.copy_to(aux, 2)
     print("Copy to...")
-    for i in range(0, len(aux)):
-        print(aux[i])
+    for elem in aux:
+        print(elem)
 
     print(f"Contain 2: {linked_list.contains(2)}")
     print(f"Contain 6: {linked_list.contains(6)}")

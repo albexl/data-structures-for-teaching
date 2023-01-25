@@ -1,10 +1,14 @@
-""" 
+"""
 Linked List implementation
 
 At the core of the linked list data structure is the Node class.
 """
 
-class Node():
+
+from typing import List
+
+
+class Node:
     """
     A node is a container that provides the ability to both store data and connect to other nodes.
 
@@ -21,22 +25,22 @@ class Node():
     +-----+------+    +-----+------+
     |  3  |  *---+--->|  5  | None +
     +-----+------+    +-----+------+
-    first._next = second
+    first.next = second
 
     +-----+------+    +-----+------+   +-----+------+
     |  3  |  *---+--->|  5  |  *---+-->|  7  | None +
     +-----+------+    +-----+------+   +-----+------+
     third = Node(7)
-    second._next = third
+    second.next = third
 
     """
 
     def __init__(self, data) -> None:
-        self._data = data
-        self._next = None
+        self.data = data
+        self.next = None
 
 
-class LinkedList():
+class LinkedList:
     """
     Linked List implementation
     Methods implemented
@@ -45,7 +49,7 @@ class LinkedList():
     - get(index: int) -> _type_
     - clear() -> None
     - contains(item: _type_) -> bool
-    - copy_to(list: list(), index: int) -> None
+    - copy_to(list: List, index: int) -> None
     - remove(item: _type_) -> None
     - is_empty() -> bool
     - length() -> int
@@ -68,8 +72,8 @@ class LinkedList():
         if cursor:
             while cursor:
                 previous = cursor
-                cursor = cursor._next
-            previous._next = node
+                cursor = cursor.next
+            previous.next = node
         else:
             self._first = node
         self._count += 1
@@ -82,7 +86,7 @@ class LinkedList():
         Args:
             item (_type_): New element to be inserted
             index (int): Position where it will be inserted
- 
+
         Raises:
             ValueError: Index out of range
         """
@@ -94,14 +98,14 @@ class LinkedList():
             current = 1
             while cursor and current != index:
                 previous = cursor
-                cursor = cursor._next
+                cursor = cursor.next
                 current += 1
-            previous._next = node
-            node._next = cursor
+            previous.next = node
+            node.next = cursor
         else:
             cursor = node
         self._count += 1
-        
+
     def get(self, index: int):
         """
         Returns the element located at the given position
@@ -120,8 +124,8 @@ class LinkedList():
             current = 1
             while cursor and index != current:
                 current += 1
-                cursor = cursor._next
-            return cursor._data
+                cursor = cursor.next
+            return cursor.data
         return None
 
     def clear(self) -> None:
@@ -133,28 +137,26 @@ class LinkedList():
         self._first = None
         self._count = 0
 
-    def contains(self, item) ->bool:
-        """
-        Returns a bool value (True or False) that indicates whether the provided value exists within the linked list.
+    def contains(self, item) -> bool:
+        """Checks whether the provided value exists within the linked list.
         Performance: O(n)
 
         Returns:
-            bool: bool value indicating existence of a given element
+            bool: Bool value indicating the existence of a given element.
         """
         cursor = self._first
         while cursor:
-            if cursor._data == item:
+            if cursor.data == item:
                 return True
-            cursor = cursor._next
+            cursor = cursor.next
         return False
 
-    def copy_to(self, list: list(), index: int) -> None:
-        """
-        Updates the list passed as a parameter with the elements of the linked list found starting at position index
+    def copy_to(self, to_copy_list: List, index: int) -> None:
+        """Updates the list passed as a parameter with the elements of the linked list starting at `index`.
         Performance: O(n)
-        
+
         Args:
-            list (list): List to be updated
+            to_copy_list (List): List to be updated
             index (int): Starting position
 
         Raises:
@@ -166,10 +168,10 @@ class LinkedList():
         current = 1
         while cursor:
             if current >= index:
-                list.append(cursor._data)
-            cursor = cursor._next
+                to_copy_list.append(cursor.data)
+            cursor = cursor.next
             current += 1
-        
+
     def remove(self, index: int):
         """
         Removes and return the element located at the given position.
@@ -177,7 +179,7 @@ class LinkedList():
 
         Args:
             index (int): Position of the element to be deleted
-            
+
         Raises:
             ValueError: Index out of range
         """
@@ -189,10 +191,10 @@ class LinkedList():
             while index != current:
                 current += 1
                 previous = cursor
-                cursor = cursor._next
-            previous._next = cursor._next
+                cursor = cursor.next
+            previous.next = cursor.next
             self._count -= 1
-        return cursor._data
+        return cursor.data
 
     def is_empty(self) -> bool:
         """
