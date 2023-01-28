@@ -2,10 +2,13 @@ class BinarySearchBase:
     """
     Binary Search Base Class containing a general implemenation.
 
-    Given a Boolean function `func` that holds `func(x) => func(y)` for all `y > x`,
-    it finds the first `x` in the range `[left, right)` such that `func(x) == True`
+    Given a monotonic Boolean function `func`,
+    it finds the first `x` in the range `[left, right)`
+    such that `func(x) == True`
 
-    Assumptions: `func(right) == True` always. Thus, if no `x in [left, right)` holds `f(x) == True`,
+    Assumptions:
+    - `func(x) == True` implies `f(y) == True` for every `y > x`.
+    - `func(right) == True` always. Thus, if no `x in [left, right)` holds `f(x) == True`,
     it returns `right`
 
     ---
