@@ -5,12 +5,13 @@ from unittest import TestCase
 
 from parameterized import parameterized
 
-from algorithms.sorting.bubblesort import BubbleSort
-from algorithms.sorting.heapsort import HeapSort
-from algorithms.sorting.insertionsort import InsertionSort
-from algorithms.sorting.mergesort import IterativeMergeSort, RecursiveMergeSort
-from algorithms.sorting.quicksort import QuickSort
-from algorithms.sorting.selectionsort import SelectionSort
+from algorithms.sorting.bubble_sort import BubbleSort
+from algorithms.sorting.counting_sort import CountingSort
+from algorithms.sorting.heap_sort import HeapSort
+from algorithms.sorting.insertion_sort import InsertionSort
+from algorithms.sorting.merge_sort import IterativeMergeSort, RecursiveMergeSort
+from algorithms.sorting.quick_sort import QuickSort
+from algorithms.sorting.selection_sort import SelectionSort
 
 
 class TestSort(TestCase):
@@ -18,6 +19,22 @@ class TestSort(TestCase):
 
     @parameterized.expand(
         [
+            (
+                CountingSort,
+                lambda x, y: x["key"] < y["key"],
+                [
+                    {"key": 3, "value": "item1"},
+                    {"key": 2, "value": "item2"},
+                    {"key": 3, "value": "item3"},
+                    {"key": 1, "value": "item4"},
+                ],
+                [
+                    {"key": 1, "value": "item4"},
+                    {"key": 2, "value": "item2"},
+                    {"key": 3, "value": "item1"},
+                    {"key": 3, "value": "item3"},
+                ],
+            ),
             (
                 BubbleSort,
                 lambda x, y: x < y,
