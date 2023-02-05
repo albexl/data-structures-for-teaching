@@ -8,6 +8,7 @@ from parameterized import parameterized
 from algorithms.sorting.bogo_sort import BogoSort
 from algorithms.sorting.bubble_sort import BubbleSort
 from algorithms.sorting.counting_sort import CountingSort
+from algorithms.sorting.gnome_sort import GnomeSort
 from algorithms.sorting.heap_sort import HeapSort
 from algorithms.sorting.insertion_sort import InsertionSort
 from algorithms.sorting.merge_sort import IterativeMergeSort, RecursiveMergeSort
@@ -21,6 +22,12 @@ class TestSort(TestCase):
 
     @parameterized.expand(
         [
+            (
+                GnomeSort,
+                lambda x, y: x <= y,
+                [1, 1, 2, 2, 3, 4, 4, 9],
+                [1, 1, 2, 2, 3, 4, 4, 9],
+            ),
             (
                 BogoSort,
                 lambda x, y: x < y,
