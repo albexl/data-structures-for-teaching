@@ -26,7 +26,7 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 - [x] [Selection Sort](./algorithms/sorting/selectionsort.py)
 - [ ] Radix Sort
 - [x] [Counting Sort](./algorithms/sorting/counting_sort.py)
-- [ ] Shell Sort
+- [x] [Shell Sort](./algorithms/sorting/shell_sort.py)
 - [ ] Bogo Sort
 - [ ] Tim Sort
 - [ ] Gnome Sort
