@@ -29,7 +29,7 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 - [x] [Shell Sort](./algorithms/sorting/shell_sort.py)
 - [x] [Bogo Sort](./algorithms/sorting/bogo_sort.py)
 - [ ] Tim Sort
-- [ ] Gnome Sort
+- [x] [Gnome Sort](./algorithms/sorting/gnome_sort.py)
 
 ### Search Algorithms:
 
