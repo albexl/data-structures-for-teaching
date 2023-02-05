@@ -5,6 +5,7 @@ from unittest import TestCase
 
 from parameterized import parameterized
 
+from algorithms.sorting.bogo_sort import BogoSort
 from algorithms.sorting.bubble_sort import BubbleSort
 from algorithms.sorting.counting_sort import CountingSort
 from algorithms.sorting.heap_sort import HeapSort
@@ -20,6 +21,12 @@ class TestSort(TestCase):
 
     @parameterized.expand(
         [
+            (
+                BogoSort,
+                lambda x, y: x < y,
+                [2, 4, 1],
+                [1, 2, 4],
+            ),
             (
                 CountingSort,
                 lambda x, y: x["key"] < y["key"],
