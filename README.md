@@ -49,7 +49,7 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 - [ ] Greatest Common Divisor
 - [ ] Extended Greatest Common Divisor
 - [ ] Euler's Phi Function
-- [ ] Eratosthenes Sieve
+- [x] [Eratosthenes Sieve]
 - [ ] Miller-Rabin
 - [x] [Modular Arithmetics](./algorithms/number_theory/modular_arithmetics.py)
 
