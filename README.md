@@ -25,11 +25,11 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 - [x] [Insertion Sort](./algorithms/sorting/insertionsort.py)
 - [x] [Selection Sort](./algorithms/sorting/selectionsort.py)
 - [ ] Radix Sort
-- [ ] Counting Sort
-- [ ] Shell Sort
-- [ ] Bogo Sort
+- [x] [Counting Sort](./algorithms/sorting/counting_sort.py)
+- [x] [Shell Sort](./algorithms/sorting/shell_sort.py)
+- [x] [Bogo Sort](./algorithms/sorting/bogo_sort.py)
 - [ ] Tim Sort
-- [ ] Gnome Sort
+- [x] [Gnome Sort](./algorithms/sorting/gnome_sort.py)
 
 ### Search Algorithms:
 
