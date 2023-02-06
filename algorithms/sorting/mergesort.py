@@ -5,7 +5,7 @@ from typing import List
 from .sort import Sort, T
 
 
-class BaseMergeSort(Sort):
+class BaseMergeSort(Sort[T]):
     """Base Merge Sort class."""
 
     def _merge(self, left: List[T], right: List[T]) -> List[T]:
@@ -32,7 +32,7 @@ class BaseMergeSort(Sort):
         return merged
 
 
-class RecursiveMergeSort(BaseMergeSort):
+class RecursiveMergeSort(BaseMergeSort[T]):
     """Class that represents a recursive MergeSort implementation."""
 
     def _sort(self, items: List[T]) -> List[T]:
@@ -49,7 +49,7 @@ class RecursiveMergeSort(BaseMergeSort):
         return sorted_items
 
 
-class IterativeMergeSort(BaseMergeSort):
+class IterativeMergeSort(BaseMergeSort[T]):
     """Class that represents an iterative MergeSort implementation."""
 
     def _sort(self, items: List[T]) -> List[T]:

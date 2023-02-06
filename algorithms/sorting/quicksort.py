@@ -7,7 +7,7 @@ from typing import Callable, List
 from .sort import Sort, T
 
 
-class QuickSort(Sort):
+class QuickSort(Sort[T]):
     """Class that represents a QuickSort implementation."""
 
     def __init__(

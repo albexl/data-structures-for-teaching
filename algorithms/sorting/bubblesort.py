@@ -1,12 +1,12 @@
 """Module with the implementation of the BubbleSort algorithm."""
 
 
-from typing import List
+from typing import List, Generic
 
 from .sort import Sort, T
 
 
-class BubbleSort(Sort):
+class BubbleSort(Sort[T]):
     """Class that represents a BubbleSort implementation."""
 
     def _sort(self, items: List[T]) -> List[T]:

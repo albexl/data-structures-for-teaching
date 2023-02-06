@@ -1,14 +1,14 @@
 """Module with the implementation of the HeapSort algorithm."""
 
 
-from typing import List
+from typing import List, Generic
 
 from data_structures.heap.implementation import Heap
 
 from .sort import Sort, T
 
 
-class HeapSort(Sort):
+class HeapSort(Sort[T]):
     """Class that represents a HeapSort implementation."""
 
     def _sort(self, items: List[T]) -> List[T]:

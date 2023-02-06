@@ -6,7 +6,7 @@ from typing import List
 from .sort import Sort, T
 
 
-class InsertionSort(Sort):
+class InsertionSort(Sort[T]):
     """Class that represents an InsertionSort implementation."""
 
     def _sort(self, items: List[T]) -> List[T]:
