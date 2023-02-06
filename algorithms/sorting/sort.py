@@ -7,18 +7,17 @@ from typing import Callable, List
 class Sort(ABC):
     """Base class for sorting."""
 
-    def __init__(self, func: Callable, items: List) -> None:
+    def __init__(self, func: Callable) -> None:
         self._comp_func = func
-        self._items = items
 
-    def sort(self) -> List:
+    def sort(self, items: List) -> List:
         """Returns the sorted version of the elements contained
         in the `_items` property.
 
         Returns:
             List: The sorted elements.
         """
-        return self._sort(self._items)
+        return self._sort(items)
 
     @abstractmethod
     def _sort(self, items: List) -> List:
