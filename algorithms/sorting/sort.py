@@ -6,6 +6,7 @@ from typing import Callable, List, Generic, TypeVar
 
 T = TypeVar("T")
 
+
 class Sort(ABC, Generic[T]):
     """Base class for sorting."""
 

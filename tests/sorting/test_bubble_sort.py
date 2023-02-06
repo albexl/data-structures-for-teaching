@@ -5,7 +5,7 @@ from algorithms.sorting.bubblesort import BubbleSort
 
 
 class TestBubbleSort(BaseSortTest):
-    __test__= True
+    __test__ = True
 
     @classmethod
     def setUpSortingInstance(cls, comp_func: Callable[[int, int], bool]):

@@ -35,7 +35,6 @@ class QuickSort(Sort[T]):
         self.__sort(items, mid + 1, right)
 
     def __partition(self, items: List[T], left: int, right: int) -> int:
-
         piv = items[self.pivot_strategy(left, right)]
         i = left
         j = right
