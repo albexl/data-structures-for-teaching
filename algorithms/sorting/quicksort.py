@@ -4,7 +4,7 @@
 from random import randint
 from typing import Callable, List
 
-from .sort import Sort
+from .sort import Sort, T
 
 
 class QuickSort(Sort):
@@ -12,8 +12,8 @@ class QuickSort(Sort):
 
     def __init__(
         self,
-        comp_func: Callable,
-        pivot_strategy: Callable = lambda l, r: randint(l, r),
+        comp_func: Callable[[T, T], bool],
+        pivot_strategy: Callable[[int, int], int] = lambda l, r: randint(l, r),
     ) -> None:
         super().__init__(comp_func)
         self.pivot_strategy = pivot_strategy
