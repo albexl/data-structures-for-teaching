@@ -1,8 +1,8 @@
 """Module holding base and common code for test sorting algorithms."""
 
+from abc import ABCMeta, abstractmethod
 from typing import List
 from unittest import TestCase
-from abc import ABCMeta, abstractmethod
 
 from algorithms.sorting.sort import Sort
 

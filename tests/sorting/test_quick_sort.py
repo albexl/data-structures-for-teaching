@@ -1,7 +1,8 @@
 from typing import Callable
 
-from .base import BaseSortTest
 from algorithms.sorting.quicksort import QuickSort
+
+from .base import BaseSortTest
 
 
 class TestQuickSort(BaseSortTest):

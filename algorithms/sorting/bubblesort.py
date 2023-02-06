@@ -1,7 +1,7 @@
 """Module with the implementation of the BubbleSort algorithm."""
 
 
-from typing import List, Generic
+from typing import Generic, List
 
 from .sort import Sort, T
 

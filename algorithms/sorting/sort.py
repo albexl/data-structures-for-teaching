@@ -1,8 +1,7 @@
 """Module with the base implementation of a Sort class."""
 
 from abc import ABC, abstractmethod
-from typing import Callable, List, Generic, TypeVar
-
+from typing import Callable, Generic, List, TypeVar
 
 T = TypeVar("T")
 

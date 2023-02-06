@@ -1,6 +1,8 @@
 from typing import Callable
-from .base import BaseSortTest
+
 from algorithms.sorting.heapsort import HeapSort
+
+from .base import BaseSortTest
 
 
 class TestHeapSort(BaseSortTest):

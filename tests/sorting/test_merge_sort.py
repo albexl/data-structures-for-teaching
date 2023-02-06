@@ -1,7 +1,8 @@
 from typing import Callable
 
+from algorithms.sorting.mergesort import IterativeMergeSort, RecursiveMergeSort
+
 from .base import BaseSortTest
-from algorithms.sorting.mergesort import RecursiveMergeSort, IterativeMergeSort
 
 
 class TestRecursiveMergeSort(BaseSortTest):

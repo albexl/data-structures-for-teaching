@@ -1,7 +1,8 @@
 from typing import Callable
 
-from .base import BaseSortTest
 from algorithms.sorting.selectionsort import SelectionSort
+
+from .base import BaseSortTest
 
 
 class TestSelectionSort(BaseSortTest):

@@ -1,7 +1,8 @@
 from typing import Callable
 
-from .base import BaseSortTest
 from algorithms.sorting.bubblesort import BubbleSort
+
+from .base import BaseSortTest
 
 
 class TestBubbleSort(BaseSortTest):

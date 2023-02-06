@@ -1,7 +1,7 @@
 """Module with the implementation of the HeapSort algorithm."""
 
 
-from typing import List, Generic
+from typing import Generic, List
 
 from data_structures.heap.implementation import Heap
 
