@@ -7,8 +7,8 @@ from typing import Callable, List
 class Sort(ABC):
     """Base class for sorting."""
 
-    def __init__(self, func: Callable) -> None:
-        self._comp_func = func
+    def __init__(self, comp_func: Callable) -> None:
+        self._comp_func = comp_func
 
     def sort(self, items: List) -> List:
         """Returns the sorted version of the elements contained
