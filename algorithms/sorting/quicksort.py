@@ -13,10 +13,9 @@ class QuickSort(Sort):
     def __init__(
         self,
         comp_func: Callable,
-        items: List,
         pivot_strategy: Callable = lambda l, r: randint(l, r),
     ) -> None:
-        super().__init__(comp_func, items)
+        super().__init__(comp_func)
         self.pivot_strategy = pivot_strategy
 
     def _sort(self, items: List) -> List:
