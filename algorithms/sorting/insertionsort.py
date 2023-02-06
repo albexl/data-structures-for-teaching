@@ -3,13 +3,13 @@
 
 from typing import List
 
-from .sort import Sort
+from .sort import Sort, T
 
 
 class InsertionSort(Sort):
     """Class that represents an InsertionSort implementation."""
 
-    def _sort(self, items: List) -> List:
+    def _sort(self, items: List[T]) -> List[T]:
         size = len(items)
         sorted_items = items.copy()
 

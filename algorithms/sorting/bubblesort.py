@@ -3,13 +3,13 @@
 
 from typing import List
 
-from .sort import Sort
+from .sort import Sort, T
 
 
 class BubbleSort(Sort):
     """Class that represents a BubbleSort implementation."""
 
-    def _sort(self, items: List) -> List:
+    def _sort(self, items: List[T]) -> List[T]:
         size = len(items)
         swapped = True
         sorted_items = items.copy()

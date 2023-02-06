@@ -12,7 +12,7 @@ class Sort(ABC, Generic[T]):
     def __init__(self, comp_func: Callable[[T, T], bool]) -> None:
         self._comp_func = comp_func
 
-    def sort(self, items: List) -> List:
+    def sort(self, items: List[T]) -> List[T]:
         """Returns the sorted version of the elements contained
         in the `_items` property.
 
@@ -22,7 +22,7 @@ class Sort(ABC, Generic[T]):
         return self._sort(items)
 
     @abstractmethod
-    def _sort(self, items: List) -> List:
+    def _sort(self, items: List[T]) -> List[T]:
         """Abstract method that should be implemented on
         the concrete classes that inherit from `Sort`.
 

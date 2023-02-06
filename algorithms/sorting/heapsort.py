@@ -5,13 +5,13 @@ from typing import List
 
 from data_structures.heap.implementation import Heap
 
-from .sort import Sort
+from .sort import Sort, T
 
 
 class HeapSort(Sort):
     """Class that represents a HeapSort implementation."""
 
-    def _sort(self, items: List) -> List:
+    def _sort(self, items: List[T]) -> List[T]:
         heap = Heap(self._comp_func)
         for item in items:
             heap.insert(item)

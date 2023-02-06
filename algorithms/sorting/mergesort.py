@@ -2,13 +2,13 @@
 
 from typing import List
 
-from .sort import Sort
+from .sort import Sort, T
 
 
 class BaseMergeSort(Sort):
     """Base Merge Sort class."""
 
-    def _merge(self, left: List, right: List) -> List:
+    def _merge(self, left: List[T], right: List[T]) -> List[T]:
         merged = []
         left_idx = 0
         right_idx = 0
@@ -35,7 +35,7 @@ class BaseMergeSort(Sort):
 class RecursiveMergeSort(BaseMergeSort):
     """Class that represents a recursive MergeSort implementation."""
 
-    def _sort(self, items: List) -> List:
+    def _sort(self, items: List[T]) -> List[T]:
         if len(items) <= 1:
             return items
 
@@ -52,7 +52,7 @@ class RecursiveMergeSort(BaseMergeSort):
 class IterativeMergeSort(BaseMergeSort):
     """Class that represents an iterative MergeSort implementation."""
 
-    def _sort(self, items: List) -> List:
+    def _sort(self, items: List[T]) -> List[T]:
 
         sorted_items = items.copy()
         chunk_size = 1

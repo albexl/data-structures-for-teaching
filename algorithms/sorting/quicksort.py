@@ -18,14 +18,14 @@ class QuickSort(Sort):
         super().__init__(comp_func)
         self.pivot_strategy = pivot_strategy
 
-    def _sort(self, items: List) -> List:
+    def _sort(self, items: List[T]) -> List[T]:
         size = len(items)
         sorted_items = items.copy()
 
         self.__sort(sorted_items, 0, size - 1)
         return sorted_items
 
-    def __sort(self, items: List, left: int, right: int) -> None:
+    def __sort(self, items: List[T], left: int, right: int) -> None:
         if right <= left:
             return
 
@@ -34,7 +34,7 @@ class QuickSort(Sort):
         self.__sort(items, left, mid)
         self.__sort(items, mid + 1, right)
 
-    def __partition(self, items: List, left: int, right: int) -> int:
+    def __partition(self, items: List[T], left: int, right: int) -> int:
 
         piv = items[self.pivot_strategy(left, right)]
         i = left
