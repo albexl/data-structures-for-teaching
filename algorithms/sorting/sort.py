@@ -1,13 +1,15 @@
 """Module with the base implementation of a Sort class."""
 
 from abc import ABC, abstractmethod
-from typing import Callable, List
+from typing import Callable, List, Generic, TypeVar
 
 
-class Sort(ABC):
+T = TypeVar("T")
+
+class Sort(ABC, Generic[T]):
     """Base class for sorting."""
 
-    def __init__(self, comp_func: Callable) -> None:
+    def __init__(self, comp_func: Callable[[T, T], bool]) -> None:
         self._comp_func = comp_func
 
     def sort(self, items: List) -> List:
