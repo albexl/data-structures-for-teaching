@@ -2,6 +2,46 @@
 
 Thank you for contributing to this project! We expect all contributors to have read this file before submitting Pull Requests.
 
+## Environment Setup
+
+## Dependency management
+
+Considering the current development of multiple Dependency Management Tools for Python (Poetry, Pipenv, pyenv, ...), and the benefits of its use, a [Poetry](https://python-poetry.org/docs/basic-usage/) environment was created. For installing Poetry, please visit the [documentation](https://python-poetry.org/docs/#installation) related to this topic, and confirm that it's added to your PATH.
+
+When using Poetry, a virtual environment will be created for this project, isolating all its dependencies.
+
+### About the `pyproject.toml` file
+
+Everything related to the environment configuration could be found on the [pyproject.toml](./pyproject.toml) file. For more detailed information about it, please refer to the Poetry doc. Also, if the `TOML` language is new to you, you can refer to the [spec definition](https://toml.io/en/).
+
+The file is grouped in tables (defined by TOML as `[<table_name>]`). At the moment we have:
+
+1. **tool.poetry**: Basic metadata about the project. It will be used when generating and publishing a package to **PyPi**
+2. **tool.poetry.dependencies**: Common dependencies for all environments
+3. **tool.poetry.group.test.dependencies**: Test dependencies
+4. **tool.poetry.group.dev.dependencies**: Development dependencies
+5. **build-system**: Poetry internal configuration
+
+Any table which name follows the format `tool.poetry[.group.{group_name}].dependencies`, defines a [dependency group](https://python-poetry.org/docs/managing-dependencies/#dependency-groups) for Poetry, and it allows the user to install those dependencies under specific groups. For example, those in _test_ and _dev_ groups are not needed for a PyPi deployment. Please, notice than _test_ and _dev_ are just selected names, and not required groups by Poetry.
+
+### Some useful commands
+
+For running any of the following commands, position your shell in the project root, where `pyproject.toml` is located.
+
+```
+$ poetry install  # Install all dependencies, including test and dev
+$ poetry install --without test,dev  # Install all dependencies, except those in groups test and dev
+$ poetry shell  # Enters the environment shell
+$ poetry run <command>  # Runs a command in the environment without having to open the shell. For example `poetry run pytest`
+$ poetry update [package_1] [package_2]  # Update all the dependencies, or those specified to the latest compatible version
+$ poetry remove <package> [--group G]  # Remove the listed package, optionally from a specific group
+$ poetry show  # List all dependencies
+$ poetry config --list  # Shows the current Pyproject configuration
+$ poetry export -f requirements.txt --output requirements.txt  # Export all dependencies to requirements.txt file
+```
+
+For more detailed use cases, and other commands, please visit the [cli documentation](https://python-poetry.org/docs/cli/).
+
 ## Organization
 
 Here is a brief description of the repo's structure, just to get you familiar with it before you can start contributing.
