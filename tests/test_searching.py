@@ -6,6 +6,8 @@ from unittest import TestCase
 from parameterized import parameterized
 
 from algorithms.searching.linear_search import LinearSearch
+from algorithms.searching.binary_search import BinarySearch
+
 from algorithms.searching.search import Search
 
 
@@ -26,6 +28,48 @@ class TestSearch(TestCase):
                 {"name": "item2", "value": 10},
                 1,
             ),
+            (
+                BinarySearch, 
+                lambda x, y: 0 if x==y else -1 if x < y else 1,
+                [1, 3, 8, 100, 105, 110, 112, 116],
+                100,
+                3
+            ),
+            (
+                BinarySearch, 
+                lambda x, y: 0 if x==y else -1 if x < y else 1,
+                [1, 3, 8, 100, 105, 110, 112, 116],
+                101,
+                -1
+            ),
+            (
+                BinarySearch, 
+                lambda x, y: 0 if x==y else -1 if x < y else 1,
+                [1, 3, 8, 100, 105, 110, 112, 116],
+                1,
+                0
+            ),
+            (
+                BinarySearch, 
+                lambda x, y: 0 if x==y else -1 if x < y else 1,
+                [1, 3, 8, 100, 105, 110, 112, 116],
+                116,
+                7
+            ),
+            (
+                BinarySearch, 
+                lambda x, y: 0 if x==y else -1 if x < y else 1,
+                [1, 3, 8, 100, 105, 110, 112, 116],
+                112,
+                6
+            ),
+            (
+                BinarySearch, 
+                lambda x, y: 0 if x==y else -1 if x < y else 1,
+                [1, 3, 8, 100, 105, 110, 112, 116, 120],
+                105,
+                4
+            )
         ]
     )
     def test_searching(
