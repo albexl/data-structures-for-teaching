@@ -1,12 +1,6 @@
 name: Python package
 
-on:
-  - push:
-  - pull_request:
-      types:
-        - opened
-        - reopened
-        - synchronize
+on: [push, pull_request]
 
 jobs:
   build:
