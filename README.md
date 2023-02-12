@@ -8,7 +8,7 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 ## Data Structures:
 
 - [x] [Stack](./data_structures/stack/implementation.py)
-a stack is an abstract data type that serves as a collection of elements, with two main operations: Push, which adds an element to the collection, and Pop, which removes the most recently added element that was not yet removed.
+:a stack is an abstract data type that serves as a collection of elements, with two main operations: Push, which adds an element to the collection, and Pop, which removes the most recently added element that was not yet removed.
 
 - [x] [Trie](./data_structures/trie/implementation.py)
 A trie is an ordered data structure, a type of search tree used to store associative data structures.
