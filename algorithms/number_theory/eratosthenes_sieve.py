@@ -1,58 +1,34 @@
 """Module with the implementation of eratosthenes sieve algorithm."""
 
 
-from typing import List
-
-
 class EratosthenesSieve:
     """Class implementation of the eratosthenes sieve algorithm."""
 
     def __init__(self, n: int):
         self._n = n
         self._primes = [True for _ in range(self._n + 1)]
+        self._compute_primes()
+        self._accumulate_primes()
 
-    def eratosthenes_sieve(self) -> List[bool]:
-        """
-        Eratosthenes sieve algorithm.
-
-        Returns
-        -------
-        primes : List[bool]
-            Boolean array such that prime[i] = True if and only if i is prime.
-        """
+    def _compute_primes(self):
+        """Eratosthenes sieve algorithm."""
         self._primes[0] = self._primes[1] = False
-
         for i in range(2, self._n + 1):
             if self._primes[i]:
                 for j in range(i + i, self._n + 1, i):
                     self._primes[j] = False
 
-        return self._primes
-
-    def accum_primes(self) -> List[int]:
-        """
-        Applies acumulative sum according to the primes array.
-
-        Returns
-        -------
-        dp : List[int]
-            Acumulative sum according to the primes array.
-        """
-        dp = [0 for _ in range(self._n + 1)]
+    def _accumulate_primes(self):
+        """Applies cumulative sum to the primes array."""
+        self.cum_sum = [0 for _ in range(self._n + 1)]
         for i in range(1, self._n + 1):
-            dp[i] = dp[i - 1]
-            if self._primes[i]:
-                dp[i] += 1
-        return dp
+            self.cum_sum[i] = self.cum_sum[i - 1] + int(self._primes[i])
 
-    def get_count(self, dp: List[int], left: int, right: int) -> int:
-        """
-        Returns the count of prime numbers in the interval [left, right].
+    def get_primes_count(self, left: int, right: int) -> int:
+        """Returns the count of prime numbers in the interval [left, right].
 
         Parameters
         ----------
-        dp : List[int]
-            Acumulative sum according to the primes array.
         left : int
             Lower limit of range.
         right : int
@@ -63,11 +39,15 @@ class EratosthenesSieve:
         count_primes : int
             Count of prime numbers in the interval [left, right].
         """
-        count_primes = 0
+        return self.cum_sum[right] - (self.cum_sum[left - 1] if left > 0 else 0)
 
-        if left == 0:
-            count_primes = dp[right]
-        else:
-            count_primes = dp[right] - dp[left - 1]
+    def is_prime(self, number: int) -> bool:
+        """Checks if the param `number` is a prime number.
 
-        return count_primes
+        Args:
+            number (int): The integer number to check for primality.
+
+        Returns:
+            bool: True if `number` is prime. False otherwise.
+        """
+        return self.get_primes_count(number, number) == 1
