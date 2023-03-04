@@ -21,9 +21,7 @@ class Naive(StringSearch):
         for i in range(len(self._text) - len(self._pattern) + 1):
 
             j = 0
-            while j < len(self._pattern):
-                if self._text[i + j] != self._pattern[j]:
-                    break
+            while j < len(self._pattern) and self._text[i + j] == self._pattern[j]:
                 j += 1
 
             if j == len(self._pattern):

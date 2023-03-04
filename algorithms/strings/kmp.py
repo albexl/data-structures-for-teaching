@@ -11,8 +11,8 @@ class KMP(StringSearch):
 
     def __init__(self, text: str, pattern: str) -> None:
         super().__init__(text=text, pattern=pattern)
-        self._text = "$" + text
-        self._pattern = "$" + pattern
+        self._text = f"${text}"
+        self._pattern = f"${pattern}"
         self._pi = [0 for _ in range(len(self.pattern) + 1)]
 
         self._prefix_function()

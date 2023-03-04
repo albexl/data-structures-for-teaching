@@ -27,5 +27,5 @@ class StringSearch(ABC):
         Assumes indexing starting at 1.
 
         Returns:
-            List: List with the ocurrences of the pattern in the text.
+            List: List with the occurrences of the pattern in the text.
         """
