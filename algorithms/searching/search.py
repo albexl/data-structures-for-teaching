@@ -16,7 +16,7 @@ class Search(ABC):
         """Abstract method that should be implemented on
         the concrete classes that inherit from `Search`.
 
-        It should search for an ocurrence of the item in the collection.
+        It should search for an occurrence of the item in the collection.
 
         Args:
             item: The item to search for.
