@@ -23,10 +23,9 @@ class BaseTestLinkedList(TestCase):
         for item in self.test_items:
             self.linked_list.add(item)
 
-        retrieved_items = []
-        for i in range(1, self.linked_list.length() + 1):
-            retrieved_items.append(self.linked_list.get(i))
-
+        retrieved_items = [
+            self.linked_list.get(i) for i in range(1, self.linked_list.length() + 1)
+        ]
         self.assertEqual(retrieved_items, self.test_items)
 
     def test_clear(self):
@@ -61,10 +60,9 @@ class BaseTestLinkedList(TestCase):
         # Insert element 5 in a valid position (2)
         self.linked_list.insert(5, 2)
 
-        # Verify insertion
-        retrieved_items = []
-        for i in range(1, self.linked_list.length() + 1):
-            retrieved_items.append(self.linked_list.get(i))
+        retrieved_items = [
+            self.linked_list.get(i) for i in range(1, self.linked_list.length() + 1)
+        ]
         self.assertEqual(retrieved_items, [1, 5, 2, 3])
 
     def test_contains(self):
@@ -98,10 +96,9 @@ class BaseTestLinkedList(TestCase):
         # Remove element in a second position (2)
         self.linked_list.remove(2)
 
-        # Verify removal
-        retrieved_items = []
-        for i in range(1, self.linked_list.length() + 1):
-            retrieved_items.append(self.linked_list.get(i))
+        retrieved_items = [
+            self.linked_list.get(i) for i in range(1, self.linked_list.length() + 1)
+        ]
         self.assertEqual(retrieved_items, [1, 3])
 
     def test_copy_to(self):
