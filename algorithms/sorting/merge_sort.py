@@ -39,14 +39,13 @@ class RecursiveMergeSort(BaseMergeSort):
         if len(items) <= 1:
             return items
 
-        left = items[0 : len(items) // 2]
-        right = items[len(items) // 2 : len(items)]
+        left = items[: len(items) // 2]
+        right = items[len(items) // 2 :]
 
         left = self._sort(left)
         right = self._sort(right)
 
-        sorted_items = self._merge(left, right)
-        return sorted_items
+        return self._merge(left, right)
 
 
 class IterativeMergeSort(BaseMergeSort):
@@ -68,6 +67,6 @@ class IterativeMergeSort(BaseMergeSort):
 
                 i += chunk_size * 2
 
-            chunk_size = chunk_size * 2
+            chunk_size *= 2
 
         return sorted_items
