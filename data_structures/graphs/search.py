@@ -15,9 +15,7 @@ def breadth_first_search(graph: Graph, start: Location):
     """
     frontier = Queue()
     frontier.put(start)
-    reached: Dict[Location, bool] = {}
-    reached[start] = True
-
+    reached: Dict[Location, bool] = {start: True}
     while not frontier.empty():
         current: Location = frontier.get()
         print(f"Visiting {current}")

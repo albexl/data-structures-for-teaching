@@ -68,8 +68,7 @@ class LinkedList:
             item (_type_): Element to be added
         """
         node = Node(item)
-        cursor = self._first
-        if cursor:
+        if cursor := self._first:
             while cursor:
                 previous = cursor
                 cursor = cursor.next
@@ -93,8 +92,7 @@ class LinkedList:
         if index <= 0:
             raise ValueError("Index out of range")
         node = Node(item)
-        cursor = self._first
-        if cursor:
+        if cursor := self._first:
             current = 1
             while cursor and current != index:
                 previous = cursor
@@ -119,8 +117,7 @@ class LinkedList:
         """
         if index <= 0 or index > self._count:
             raise ValueError("index out of range")
-        cursor = self._first
-        if cursor:
+        if cursor := self._first:
             current = 1
             while cursor and index != current:
                 current += 1
