@@ -22,6 +22,6 @@ class Modular:
             if b % 2 == 1:
                 result = self.mult(result, a)
             a = self.mult(a, a)
-            b = b // 2
+            b //= 2
 
         return result
