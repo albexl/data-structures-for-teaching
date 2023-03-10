@@ -1,7 +1,7 @@
 """Module with Trie implementations."""
 
 
-from typing import List
+from typing import Dict, List, Set, Tuple
 
 import pydot
 from typing_extensions import Self
@@ -16,7 +16,7 @@ class TrieNode:
         self.alphabet = alphabet
         self.symbol = symbol
         self.final = False
-        self.edges = {}
+        self.edges: Dict[str, TrieNode] = {}
         self.cnt = 0
 
     def add_edge(self, symbol: str) -> Self:
@@ -184,7 +184,7 @@ class Trie:
         return graph
 
     def _get_edges(self, node: TrieNode):
-        edges = set()
+        edges: Set[Tuple[TrieNode, TrieNode]] = set()
         for symbol in self.alphabet:
             next_node = node.get_node(symbol)
             if next_node is not None:

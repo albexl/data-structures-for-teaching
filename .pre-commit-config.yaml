@@ -1,0 +1,31 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: check-json
+      - id: check-toml
+      - id: check-yaml
+
+  - repo: https://github.com/psf/black
+    rev: 22.12.0
+    hooks:
+      - id: black
+        name: Black
+
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.0.185
+    hooks:
+      - id: ruff
+        name: Ruff
+        args: ["--fix"]
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.991
+    hooks:
+      - id: mypy
+        name: MyPy
+        exclude: ^.*\b(migrations)\b.*$
+        additional_dependencies: ["types-requests", "types-redis"]

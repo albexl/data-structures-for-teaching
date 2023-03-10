@@ -80,7 +80,7 @@ if __name__ == "__main__":
 
     input_sizes = [random.randint(1, 50) for _ in range(trials)]
 
-    total = 0
+    total = 0.0
 
     pygame.init()
     game_display = pygame.display.set_mode((WIDTH, HEIGHT))
