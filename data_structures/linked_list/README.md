@@ -47,7 +47,7 @@ Also the *space complexity* for all the basic operations mentioned above is **O(
 - **Complex implementation** - Linked lists can be more complex to implement than other data structures, such as arrays or stacks. They require knowledge of dynamic memory allocation and pointer manipulation, which can be difficult for novice programmers.
 
 ## Why use Linked List over Array
-<img src="https://miro.medium.com/v2/resize:fit:3454/1*G43FVT5xJ1n1QDKVNZUxXQ.jpeg"  width="800" height="450">
+<img src="https://miro.medium.com/v2/resize:fit:3454/1*G43FVT5xJ1n1QDKVNZUxXQ.jpeg"  width="700" height="400">
 
 - Till now, we were using array data structure to organize the group of elements that are to be stored individually in the memory. However, Array has several advantages and disadvantages which must be known in order to decide the data structure which will be used throughout the program.
 - Array contains following limitations:
