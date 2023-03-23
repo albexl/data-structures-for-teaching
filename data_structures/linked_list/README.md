@@ -6,7 +6,7 @@ A linked list is a **linear** data structure, in which the elements are not stor
 
 Each node consists of a data field and a pointer field (also called *link*). The data field is used to store the required data and the pointer field is used to store the address of the next node(to point to the next node).
 
-<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--hRoBhSsZ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/sbzf3hz07azamnxapyp1.png " width=200 height=150 >
+<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--hRoBhSsZ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/sbzf3hz07azamnxapyp1.png " width=250 height=200 >
 
 
 Each node is stored randomly in the memory. Lets see how nodes are stored in memory-
@@ -60,7 +60,7 @@ Also the *space complexity* for all the basic operations mentioned above is **O(
 
 ## Why use Linked List over Array
 
-<img src="https://miro.medium.com/v2/resize:fit:3454/1*G43FVT5xJ1n1QDKVNZUxXQ.jpeg"  width="800" height="500">
+<img src="https://miro.medium.com/v2/resize:fit:3454/1*G43FVT5xJ1n1QDKVNZUxXQ.jpeg"  width="900" height="500">
 
 - Till now, we were using array data structure to organize the group of elements that are to be stored individually in the memory. However, Array has several advantages and disadvantages which must be known in order to decide the data structure which will be used throughout the program.
 - Array contains following limitations:
