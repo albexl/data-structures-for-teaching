@@ -11,7 +11,7 @@ Each node consists of a data field and a pointer field (also called *link*). The
 
 Each node is stored randomly in the memory. Lets see how nodes are stored in memory-
 
-![how_nodes_are_stored_in_meomry](https://2.bp.blogspot.com/-Q7DbZCYQwbo/UvkTWyBt9rI/AAAAAAAAAHY/AOK6bYcYnw4/s1600/22.JPG)
+![how_nodes_are_stored_in_memory](https://2.bp.blogspot.com/-Q7DbZCYQwbo/UvkTWyBt9rI/AAAAAAAAAHY/AOK6bYcYnw4/s1600/22.JPG)
 
 The head of our linked list stores the address 1005, which acts as an entry point to our linked list. The data 1005 contains is 'I' and the link field of that node stores the address 1007. Now go to the address 1007. The data 1007 contains is 'N' and the link field of that node stores address 1009. Repeat this process until NULL or 0 (or -1) is encountered. You will see that the characters when read in this sequence forms the word "**INDIA**".
 
