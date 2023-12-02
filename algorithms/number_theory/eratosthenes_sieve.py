@@ -45,4 +45,6 @@ class EratosthenesSieve:
         Returns:
             bool: True if `number` is prime. False otherwise.
         """
+        if number <= 1:
+            return False
         return self.get_primes_count(number, number) == 1
