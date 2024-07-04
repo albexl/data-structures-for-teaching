@@ -1,9 +1,9 @@
-name: Lint and Test
+name: Check and Release
 
 on: [push, pull_request]
 
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
 
     steps:
