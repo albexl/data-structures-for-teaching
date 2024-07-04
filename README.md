@@ -5,7 +5,7 @@ practical applications. Designed to be used as consulting material for those who
 
 Here is a checklist of the Data Structures and Algorithms we have or we are planning to add. If you would like to add more to the checklist, just create a Pull Request with your additions and we will review it.
 
-## Data Structures:
+## Data Structures
 
 - [x] [Stack](./data_structures/stack/implementation.py)
 - [x] [Trie](./data_structures/trie/implementation.py)
@@ -14,9 +14,9 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 - [x] [Graphs](./data_structures/graphs/implementation.py)
 - [x] [Linked List](./data_structures/linked_list/implementation.py)
 
-## Algorithms:
+## Algorithms
 
-### Sorting Algorithms:
+### Sorting Algorithms
 
 - [x] [Bubble Sort](./algorithms/sorting/bubblesort.py)
 - [x] [Heap Sort](./algorithms/sorting/heapsort.py)
@@ -31,7 +31,7 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 - [ ] Tim Sort
 - [x] [Gnome Sort](./algorithms/sorting/gnome_sort.py)
 
-### Search Algorithms:
+### Search Algorithms
 
 - [x] [Linear Search](./algorithms/searching/linear_search.py)
 - [ ] Binary Search
@@ -60,7 +60,7 @@ Here is a checklist of the Data Structures and Algorithms we have or we are plan
 - [ ] Simpson
 - [ ] Fast Fourier Transform
 
-### Graph Algorithms:
+### Graph Algorithms
 
 - [ ] Breadth-First Search
 - [ ] Depth-First Search

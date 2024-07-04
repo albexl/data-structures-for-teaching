@@ -28,16 +28,16 @@ Any table which name follows the format `tool.poetry[.group.{group_name}].depend
 
 For running any of the following commands, position your shell in the project root, where `pyproject.toml` is located.
 
-```
-$ poetry install  # Install all dependencies, including test and dev
-$ poetry install --without test,dev  # Install all dependencies, except those in groups test and dev
-$ poetry shell  # Enters the environment shell
-$ poetry run <command>  # Runs a command in the environment without having to open the shell. For example `poetry run pytest`
-$ poetry update [package_1] [package_2]  # Update all the dependencies, or those specified to the latest compatible version
-$ poetry remove <package> [--group G]  # Remove the listed package, optionally from a specific group
-$ poetry show  # List all dependencies
-$ poetry config --list  # Shows the current Pyproject configuration
-$ poetry export -f requirements.txt --output requirements.txt  # Export all dependencies to requirements.txt file
+```bash
+poetry install  # Install all dependencies, including test and dev
+poetry install --without test,dev  # Install all dependencies, except those in groups test and dev
+poetry shell  # Enters the environment shell
+poetry run <command>  # Runs a command in the environment without having to open the shell. For example `poetry run pytest`
+poetry update [package_1] [package_2]  # Update all the dependencies, or those specified to the latest compatible version
+poetry remove <package> [--group G]  # Remove the listed package, optionally from a specific group
+poetry show  # List all dependencies
+poetry config --list  # Shows the current Pyproject configuration
+poetry export -f requirements.txt --output requirements.txt  # Export all dependencies to requirements.txt file
 ```
 
 For more detailed use cases, and other commands, please visit the [cli documentation](https://python-poetry.org/docs/cli/).
@@ -80,7 +80,7 @@ To make changes to this repo, submit a Pull Request to the `dev` branch. Once it
 
 As of now, we have a basic CI setup that can be checked here: [check.yaml](./.github/workflows/check.yaml). This setup can help you know if some tests are failing for your changes and that you need to make some changes before submitting the Pull Request.
 
-#### Notes on commits:
+#### Notes on commits
 
 We would like to have some naming standards on commits. We are going to try as much as we can to use the following format when naming our commits:
 
