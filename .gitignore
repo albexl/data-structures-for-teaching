@@ -3,5 +3,7 @@ junit
 .tox
 .vscode
 .pytest_cache
+.mypy_cache
+.ruff_cache
 .coverage
 *.png
