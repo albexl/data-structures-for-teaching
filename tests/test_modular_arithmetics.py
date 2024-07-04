@@ -5,17 +5,33 @@ from unittest import TestCase
 from algorithms.number_theory.modular_arithmetics import Modular
 
 
-class TestNaive(TestCase):
-    """Class to test the modular arithmetics implementation."""
+class TestModularAdd(TestCase):
+    """Class to test the 'add' method of modular arithmetic implementation."""
 
     def setUp(self):
         self.modular = Modular(10)
 
     def test_add(self):
-        """Test the `add` method."""
-        self.assertEqual(self.modular.add(3, 4), 7)
-        self.assertEqual(self.modular.add(5, 5), 0)
-        self.assertEqual(self.modular.add(8, 5), 3)
+        """Test the `add` method with various inputs."""
+        test_cases = [
+            (3, 4, 7),  # Simple addition
+            (5, 5, 0),  # Addition resulting in modulus
+            (8, 5, 3),  # Addition wrapping around modulus
+            (0, 0, 0),  # Edge case: adding zeros
+            (-1, 2, 1),  # Negative numbers
+            (10, 10, 0),  # Inputs equal to modulus
+        ]
+
+        for a, b, expected in test_cases:
+            with self.subTest(a=a, b=b, expected=expected):
+                self.assertEqual(self.modular.add(a, b), expected)
+
+
+class TestNaive(TestCase):
+    """Class to test the modular arithmetics implementation."""
+
+    def setUp(self):
+        self.modular = Modular(10)
 
     def test_sub(self):
         """Test the `sub` method."""
