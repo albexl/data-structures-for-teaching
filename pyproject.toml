@@ -22,7 +22,7 @@ typing-extensions = "^4.4.0"
 
 [tool.poetry.group.test.dependencies]
 parameterized = "^0.8.1"
-pytest = "^7.2.1"
+pytest = "^9.0.3"
 
 
 [tool.poetry.group.dev.dependencies]
